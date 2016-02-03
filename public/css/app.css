@@ -1,0 +1,50 @@
+html {
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+body {
+  background: #fff;
+}
+
+.block-center {
+  margin: auto;
+  display: block;
+}
+
+.parallax-container {
+  min-height: 380px;
+  width: 100%;
+  line-height: 0;
+  height: auto;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+#admin-bloc-connection {
+  position: absolute;
+  top: 20%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  margin: auto;
+  padding: 5px;
+}
+
+#admin-bloc-connection legend {
+  text-align: center;
+  font-weight: 300;
+  color: #565656;
+  margin: 0 auto;
+  font-size: 35px;
+  line-height: 38px;
+  text-transform: none;
+  letter-spacing: 0;
+  padding: 40px;
+}
+
+#admin-bloc-connection .switch label {
+  margin: 0 0 0 10px;
+}
