@@ -6,6 +6,7 @@
     <title>App Name - @yield('title')</title>
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/icon?family=Roboto" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="<?php echo asset('css/materialize.css'); ?>" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="<?php echo asset('css/app.css'); ?>" media="screen,projection"/>
 </head>

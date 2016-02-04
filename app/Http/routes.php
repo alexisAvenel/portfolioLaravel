@@ -13,7 +13,6 @@
 
 
 Route::get('/', 'WelcomeController@index', ['as' => 'home']);
-//Route::get('home', 'HomeController@index');
 Route::resource('news', 'PostsController');
 Route::resource('link', 'LinksController', ['only' => ['create', 'store']]);
 Route::get('r/{link}', ['as' => 'link.show', 'uses' => 'LinksController@show'])->where('link','[0-9]+');
