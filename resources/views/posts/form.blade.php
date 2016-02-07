@@ -25,6 +25,7 @@ $options['class'] = 'col s12';
 @endif
 
 {!! Form::model($post, $options) !!}
+	{!! Form::token() !!}
 	<div class="row">
 		<div class="input-field col s12">
 		{!! Form::label('title', 'Titre') !!}

@@ -10,32 +10,28 @@ header, main, footer {
 
 @media only screen and (max-width: 992px) {
   header, main, footer {
-      padding-left: 0;
+    padding-left: 0;
   }  
 }
 
 a.button-collapse.top-nav {
-    position: absolute;
-    text-align: center;
-    height: 48px;
-    width: 48px;
-    left: 7.5%;
-    top: 0;
-    float: none;
-    margin-left: 1.5rem;
-    color: #fff;
-    font-size: 32px;
-    z-index: 2;
+  position: absolute;
+  text-align: center;
+  height: 48px;
+  width: 48px;
+  left: 7.5%;
+  top: 0;
+  float: none;
+  margin-left: 1.5rem;
+  color: #fff;
+  font-size: 32px;
+  z-index: 2;
 }
 
 @media only screen and (max-width: 600px) {
   a.button-collapse.top-nav {
-      left: 5%;
+    left: 5%;
   }
-}
-
-main {
-  min-height: 800px;
 }
 
 .header { font-weight: 300; }
@@ -57,9 +53,8 @@ main {
 /*** NAVIGATION ***/
 
 .user-details .row {
-    margin: 0
+  margin: 0
 }
-
 ul.side-nav li.user-details {
   background: url("../images/user-bg.jpg") no-repeat center center;
   -webkit-background-size: cover;
@@ -69,11 +64,42 @@ ul.side-nav li.user-details {
   margin-bottom: 15px;
   padding: 15px 0 0 15px
 }
-
+ul.side-nav li {
+  padding: 0;
+}
+ul.side-nav li a {
+  font-size: 14px;
+  font-weight: 400;
+}
+ul.side-nav .profile-btn {
+  margin: 0;
+  text-transform: capitalize;
+  padding: 0;
+  text-shadow: 1px 1px 1px #444;
+  font-size: 15px;
+}
+.side-nav a {
+  line-height: 42px;
+  height: 42px;
+}
+#slide-out li a i {
+  line-height: inherit;
+  width: 2rem;
+  font-size: 1.6rem;
+  display: block;
+  float: left;
+  text-align: center;
+  margin-right: 1rem;
+}
+ul.side-nav li.user-details #profile-dropdown {
+  overflow: hidden;
+}
 ul.side-nav li.user-details #profile-dropdown a {
   padding: 8px 15px
 }
-
+ul.side-nav .collapsible-header {
+  margin: 0;
+}
 #nav-mobile li.search .search-wrapper input#search { 
   display:block;font-size:16px;font-weight:300;width:100%;height:45px;margin:0;padding:0 45px 0 15px;border:0;box-shadow: none;
 }
@@ -108,42 +134,42 @@ ul.side-nav.fixed li a {
 
 /*** CARDS ***/
 .card {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 #card-stats .card .card-content {
-    padding: 10px 14px;
+  padding: 10px 14px;
 }
 
 #card-stats .card-content {
-    text-align: center;
+  text-align: center;
 }
 
 #card-stats .card-stats-title {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 #card-stats .card-stats-title i {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 #card-stats .card-stats-number {
-    font-size: 1.8rem;
-    line-height: 2.0rem;
-    margin: 0.2rem 0 0.2rem 0;
-    font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 2.0rem;
+  margin: 0.2rem 0 0.2rem 0;
+  font-weight: 500;
 }
 
 #card-stats .card-stats-compare {
-    font-size: 1.0rem;
+  font-size: 1.0rem;
 }
 
 #card-stats .card-stats-compare i {
-    position: relative;
-    top: 5px;
+  position: relative;
+  top: 5px;
 }
 
 #card-stats .card .card-action {
-    padding: 10px 14px;
+  padding: 10px 14px;
 }
 /*** END CARDS ***/

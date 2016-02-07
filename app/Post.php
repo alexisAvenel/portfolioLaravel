@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class Post extends Model
 {
     
-	protected $fillable = ['title', 'slug', 'content', 'online', 'category_id'];
+	protected $fillable = ['title', 'slug', 'content', 'online', 'category_id', 'resumed', 'image'];
 
 	public function category() {
 		return $this->belongsTo('App\Category');
@@ -25,6 +25,14 @@ class Post extends Model
 	public function setSlugAttribute($value) {
 		if(empty($value)) {
 			$this->attributes['slug'] = Str::slug($this->title);
+		}
+	}
+
+	public function getResumed() {
+		if(!empty($this->attributes['resumed'])) {
+			return $this->attributes['resumed'];
+		} else {
+			return (explode('.', $this->attributes['content'])) ? explode('.', $this->attributes['content'])[0] : substr($this->attributes['content'], 0, 150);
 		}
 	}
 

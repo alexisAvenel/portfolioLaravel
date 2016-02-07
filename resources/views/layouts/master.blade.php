@@ -30,13 +30,13 @@
 
     @yield('home-banner')
 
-    <div class="container">
+    <main class="container">
         <div class="section">
             <div class="row">
                 @yield('content')
             </div>
         </div>
-    </div>
+    </main>
 
     <footer class="page-footer teal">
         <div class="container">

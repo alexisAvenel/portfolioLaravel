@@ -9,6 +9,10 @@ body {
   background: #fff;
 }
 
+main {
+  min-height: 800px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
 }
@@ -32,6 +36,7 @@ h1 {
   color: rgba(255, 255, 255, 0.9);
 }
 
+/*** ADMIN BLOC ***/
 #admin-bloc-connection {
   position: absolute;
   bottom: 0;
@@ -65,3 +70,39 @@ h1 {
 #admin-bloc-connection .switch label {
   margin: 0 0 0 10px;
 }
+/*** END ADMIN BLOC ***/
+
+/*** CARDS ***/
+.card {
+  overflow: hidden;
+}
+#blog-post-full .card-image {
+  background-color: #1180A5;
+}
+
+#blog-post-full .card-title {
+  text-shadow: 1px 1px 4px #000;
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+#blog-post-full .blog-post-full-cat {
+  padding: 5px;
+  margin: 25px;
+  right: 0;
+  left: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+#blog-post-full .blog-post-full-cat a {
+  color: #fff;
+  text-shadow: none;
+}
+
+#blog-post-full .blog-post-full-cat a:hover {
+  opacity: 0.8;
+  color: dodgerblue;
+}
+/*** END CARDS ***/

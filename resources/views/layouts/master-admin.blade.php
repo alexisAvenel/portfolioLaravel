@@ -17,15 +17,16 @@
                     <i class="mdi-navigation-menu"></i>
                 </a>
             </div>
+
             <ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
                 <li class="user-details cyan darken-2">
                     <div class="row">
                         <div class="col col s4 m4 l4">
-                            <img src="images/avatar.jpg" alt="" class="circle responsive-img valign profile-image">
+                            <img src="<?php echo asset('images/avatars/'.$user['avatar']); ?>" alt="" class="circle responsive-img valign profile-image">
                         </div>
                         <div class="col col s8 m8 l8">
                             <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">
-                                John Doe<i class="mdi-navigation-arrow-drop-down right"></i>
+                                <?php echo $user['name']; ?><i class="mdi-navigation-arrow-drop-down right"></i>
                             </a>
                             <ul id="profile-dropdown" class="dropdown-content">
                                 <li>

@@ -11,31 +11,24 @@
 |
 */
 
+Route::group(['middleware' => ['web']], function () {
+	/*** Resources ***/
+	Route::resource('news', 'PostsController');
+	Route::resource('link', 'LinksController', ['only' => ['create', 'store']]);
 
-Route::get('/', 'WelcomeController@index', ['as' => 'home']);
-Route::resource('news', 'PostsController');
-Route::resource('link', 'LinksController', ['only' => ['create', 'store']]);
-Route::get('r/{link}', ['as' => 'link.show', 'uses' => 'LinksController@show'])->where('link','[0-9]+');
+	/*** Gets ***/
+	Route::get('/', ['as' => 'home', 'uses' => 'WelcomeController@index']);
+	Route::get('r/{link}', ['as' => 'link.show', 'uses' => 'LinksController@show'])->where('link','[0-9]+');
 
-Route::controllers([
-	'admin' => 'Admin\AdminController',
-    'auth' => 'Auth\AuthController',
-    'password' => 'Auth\PasswordController',
-]);
+	/*** Admin ***/
+	Route::group(['prefix' => 'admin'], function () {
+		Route::get('/', 'AdminController@index', ['as' => 'admin.home']);
+	});
 
-// Admin area
-
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
-	Route::get('/', 'Admin\AdminController@index', ['as' => 'admin.home']);
+	/*** Auth ***/
+	Route::get('/auth/login', 'Auth\AuthController@getLogin');
+	Route::post('/auth/login', 'Auth\AuthController@postLogin');
+	Route::get('/auth/logout', 'Auth\AuthController@getLogout');
+	Route::get('/auth/register', 'Auth\AuthController@getRegister');
+	//Route::post('/auth/register', 'Auth\AuthController@postRegister');
 });
-
-// Logging in and out
-Route::get('/auth/login', 'Auth\AuthController@getLogin');
-Route::post('/auth/login', 'Auth\AuthController@postLogin');
-Route::get('/auth/logout', 'Auth\AuthController@getLogout');
-
-// Registration routes...
-Route::get('/auth/register', 'Auth\AuthController@getRegister', function(){
-	return redirect('home');
-});
-//Route::post('/auth/register', 'Auth\AuthController@postRegister');

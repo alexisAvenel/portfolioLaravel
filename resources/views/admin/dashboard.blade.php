@@ -8,9 +8,9 @@
         <h4 class="header col s12 light center">Un framework front-end moderne basé sur le Material Design</h4>
         </div>
         <div class="row center">
-        	<a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light">Démarrer</a>
+        	<a href="#" id="download-button" class="btn-large waves-effect waves-light">Démarrer</a>
         </div>
-        <div class="row center"><a class="red-text text-lighten-4" href="https://github.com/Dogfalo/materialize">alpha release v0.97.5</a></div>
+        <div class="row center"><a class="red-text text-lighten-4" href="#">alpha release v0.97.5</a></div>
     </div>
 </div>
 

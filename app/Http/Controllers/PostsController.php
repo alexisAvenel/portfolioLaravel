@@ -17,6 +17,14 @@ use App\User;
 
 class PostsController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware('auth', ['except' => [
+            'index',
+            'show',
+        ]]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,8 +32,6 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //User::create(['email' => 'test@test.fr', 'password' => Hash::make('test')]);
-        //Auth::logout();
         $posts = Post::with('category')->Published()->get();
         return view('posts.index', compact('posts'));
     }
@@ -63,7 +69,11 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $categories = Category::lists('name', 'id');
+        $tags = Tag::lists('name', 'id');
+
+        return view('posts.show', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -74,6 +84,7 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
+        // <p><a class="btn waves-effect waves-light block-center light-blue darken-3" href="{{ route('news.edit', $post) }}">Editer</a></p>
         $post = Post::findOrFail($id);
         $categories = Category::lists('name', 'id');
         $tags = Tag::lists('name', 'id');
@@ -102,9 +113,6 @@ class PostsController extends Controller
             $post->tags()->sync($request->get('tags'));
             return redirect(route('news.edit', $id));
         }
-
-
-        
     }
 
     /**
