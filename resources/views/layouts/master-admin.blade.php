@@ -1,3 +1,5 @@
+<?php if(Auth::check()): $user = Auth::user()['attributes']; endif; ?>
+<!DOCTYPE html>
 <html lang="fr">
     <head>
         <title>Administration</title>
@@ -43,7 +45,7 @@
                                     <a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                                    <a href="/auth/logout"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
                                 </li>
                             </ul>
                             <p class="user-roal">Administrator</p>
@@ -56,55 +58,19 @@
                         <div class="search-results"></div>
                     </div>
                 </li>
-                <li class="bold"><a href="about.html" class="waves-effect waves-orange">À propos</a></li>
-                <li class="bold"><a href="getting-started.html" class="waves-effect waves-orange">Commencer</a></li>
-                <li class="no-padding">
-                    <ul class="collapsible collapsible-accordion">
-                        <li class="bold"><a class="collapsible-header waves-effect waves-orange">CSS</a>
-                            <div class="collapsible-body" style="">
-                                <ul>
-                                    <li><a href="color.html">Couleur</a></li>
-                                    <li><a href="grid.html">Grid</a></li>
-                                    <li><a href="helpers.html">Helpers</a></li>
-                                    <li><a href="media-css.html">Media</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="bold"><a class="collapsible-header  waves-effect waves-orange">Components</a>
-                            <div class="collapsible-body" style="">
-                                <ul>
-                                    <li><a href="badges.html">Badges</a></li>
-                                    <li><a href="buttons.html">Buttons</a></li>
-                                    <li><a href="breadcrumbs.html">Breadcrumbs</a></li>
-                                    <li><a href="cards.html">Cards</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="bold"><a class="collapsible-header  waves-effect waves-orange">JavaScript</a>
-                            <div class="collapsible-body" style="">
-                                <ul>
-                                    <li><a href="collapsible.html">Collapsible</a></li>
-                                    <li><a href="dialogs.html">Dialogs</a></li>
-                                    <li><a href="dropdown.html">Dropdown</a></li>
-                                    <li><a href="media.html">Media</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="bold"><a href="http://materializecss.com/mobile.html" class="waves-effect waves-orange">Mobile</a></li>
-                <li class="bold"><a href="showcase.html" class="waves-effect waves-orange">Showcase</a></li>
+                <li class="bold"><a href="/admin" class="waves-effect waves-orange">Dashboard</a></li>
+                <li class="bold"><a href="/admin/news" class="waves-effect waves-orange">News</a></li>
+                <li class="bold"><a href="/admin/parametres" class="waves-effect waves-orange">Paramètres</a></li>
             </ul>
         </header>
         <main>
             @yield('content')
         </main>
-        <footer class="page-footer">
 
-        </footer>
         <!--  Scripts-->
         <script type="text/javascript" src="<?php echo asset('js/jquery.min.js'); ?>"></script>
         <script type="text/javascript" src="<?php echo asset('js/materialize.js'); ?>"></script>
         <script type="text/javascript" src="<?php echo asset('js/init.js'); ?>"></script>
+        <script type="text/javascript" src="<?php echo asset('js/admin.custom.js'); ?>"></script>
     </body>
 </html>

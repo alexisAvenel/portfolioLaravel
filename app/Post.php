@@ -22,6 +22,12 @@ class Post extends Model
 		return $query->where('online', 1)->whereRaw('created_at < NOW()');
 	}
 
+	public function scopeAdminIndex($query) {
+		return $query->orderBy('online', 'asc')
+					->orderBy('published_at', 'desc')
+					->orderBy('updated_at', 'desc');
+	}
+
 	public function setSlugAttribute($value) {
 		if(empty($value)) {
 			$this->attributes['slug'] = Str::slug($this->title);

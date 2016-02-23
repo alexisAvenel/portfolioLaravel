@@ -3,14 +3,8 @@
 @section('content')
 <div class="section no-pad-bot amber" id="index-banner">
     <div class="container">
-        <h1 class="header center-on-small-only">Materialize</h1>
-        <div class="row center">
-        <h4 class="header col s12 light center">Un framework front-end moderne basé sur le Material Design</h4>
-        </div>
-        <div class="row center">
-        	<a href="#" id="download-button" class="btn-large waves-effect waves-light">Démarrer</a>
-        </div>
-        <div class="row center"><a class="red-text text-lighten-4" href="#">alpha release v0.97.5</a></div>
+        <h1 class="header center-on-small-only">Dashboard</h1>
+        <div class="row center"></div>
     </div>
 </div>
 

@@ -14,6 +14,8 @@ use Session;
 use Validator;
 use Hash;
 use App\User;
+use Storage;
+use File;
 
 class PostsController extends Controller
 {
@@ -32,8 +34,15 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('category')->Published()->get();
-        return view('posts.index', compact('posts'));
+        if(Auth::check()) {
+            $posts = Post::with('category')->AdminIndex()->get();
+            $view = 'admin.posts.index';
+        } else {
+            $posts = Post::with('category')->Published()->get();
+            $view = 'posts.index'; 
+        }
+
+        return view($view, compact('posts'));
     }
 
     /**
@@ -46,7 +55,7 @@ class PostsController extends Controller
         $post = new Post();
         $categories = Category::lists('name', 'id');
         $tags = Tag::lists('name', 'id');
-        return view('posts.create', compact('post', 'categories', 'tags'));
+        return view('admin.posts.create', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -84,12 +93,15 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        // <p><a class="btn waves-effect waves-light block-center light-blue darken-3" href="{{ route('news.edit', $post) }}">Editer</a></p>
         $post = Post::findOrFail($id);
         $categories = Category::lists('name', 'id');
         $tags = Tag::lists('name', 'id');
 
-        return view('posts.edit', compact('post', 'categories', 'tags'));
+        $a = Storage::disk('local')->publicUrl('news/'.$post->slug.'/'.$post->image);
+        //Storage::url('news/'.$post->slug.'/'.$post->image);
+        dd($a);
+
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -107,11 +119,22 @@ class PostsController extends Controller
             'content' => 'required|min:10'
         ]);
         if($validator->fails()) {
-            return redirect(route('news.edit', $id))->withErrors($validator->errors());
+            return redirect(route('admin.news.edit', $id))->withErrors($validator->errors());
         } else {
-            $post->update($request->all());
-            $post->tags()->sync($request->get('tags'));
-            return redirect(route('news.edit', $id));
+            $postRequest = $request->all();
+            if($request->file('image')->getRealPath()) {
+                $file = $request->file('image');
+                $folder = 'news/'.$post->slug;
+                $fileName = $post->id.'.'.$file->getClientOriginalExtension();
+                Storage::disk('local')->put($folder.'/'.$fileName,  File::get($file));
+                $postRequest['image'] = $fileName;
+            }
+
+            $post->update($postRequest);
+            $tags = ($request->get('tags')) ? $request->get('tags') : array();
+            $post->tags()->sync($tags);
+
+            return redirect(route('admin.news.edit', $id));
         }
     }
 
@@ -121,8 +144,37 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($post)
     {
-        //
+        print_r($post);
+        die();
+    }
+
+
+    /*** AJAX ***/
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updatePostOnline(Request $request)
+    {
+        $data = new \stdClass();
+        if($request->ajax()){
+            $postId = $request->input('postId');
+            $online = $request->input('online');
+            $upOnline = ($online == 1) ? 0 : 1;
+            $data->message = "Échec de la mise à jour !";
+
+            $post = Post::findOrFail($postId);
+            $post->online = $upOnline;
+            if($upOnline == 1): $post->published_at = date('Y-m-d'); endif;
+            if($post->save()) {
+                $data->message = "Mise à jour effectuée !"; 
+            }
+            return response()->json([
+                'data' => $data
+            ]);
+        }
     }
 }

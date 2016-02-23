@@ -2,14 +2,17 @@
 if($post->id) {
 	$options = [
 		'method' => 'put',
-		'url' => action('PostsController@update', $post)
+		'url' => action('PostsController@update', $post), 
+		'files' => true
 	];
 } else {
 	$options = [
 		'method' => 'post',
-		'url' => action('PostsController@store')
+		'url' => action('PostsController@store'), 
+		'files' => true
 	];
 }
+
 $postList = $post->tags->lists('id');
 $options['class'] = 'col s12';
 ?>
@@ -25,7 +28,7 @@ $options['class'] = 'col s12';
 @endif
 
 {!! Form::model($post, $options) !!}
-	{!! Form::token() !!}
+	
 	<div class="row">
 		<div class="input-field col s12">
 		{!! Form::label('title', 'Titre') !!}
@@ -35,6 +38,11 @@ $options['class'] = 'col s12';
 		<div class="input-field col s12">
 		{!! Form::label('slug', 'Slug') !!}
 		{!! Form::text('slug', null, ['disabled' => true]) !!}
+		</div>
+
+		<div class="input-field col s12">
+		{!! Form::label('resumed', 'Résumé de l\'article') !!}
+		{!! Form::textarea('resumed', null, ['class' => 'materialize-textarea']) !!}
 		</div>
 
 		<div class="input-field col s12">
@@ -69,13 +77,34 @@ $options['class'] = 'col s12';
 		{!! Form::textarea('content', null, ['class' => 'materialize-textarea']) !!}
 		</div>
 
+		@if($post->image)
+		<div class="col s2">
+			<img src="/images/gallery/{{ $post->image }}" class="responsive-img">
+		</div>
+		@endif
+		<div class="col s10">
+			<div class="file-field input-field">
+				<div class="btn">
+					<span>File</span>
+					{!! Form::file('image') !!}
+				</div>
+				<div class="file-path-wrapper">
+					<input class="file-path validate" type="text" placeholder="Choisir une image (grande résolution)">
+				</div>
+			</div>
+		</div>
+
 		<div class="input-field col s12">
 		{!! Form::hidden('online', 0) !!}
 		{!! Form::checkbox('online', 1, null, ['id' => 'online']) !!}
 		{!! Form::label('online', 'En ligne ?') !!}
 		</div>
-
-		<button class="btn waves-effect waves-light block-center light-blue darken-3" type="submit">Valider</button>		
+		
+		<div class="row">
+			<div class="col s12">
+				<button class="btn waves-effect waves-light block-center light-blue darken-3" type="submit">Valider</button>		
+			</div>
+		</div>
 	</div>
 
 

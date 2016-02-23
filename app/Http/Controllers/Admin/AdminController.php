@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
@@ -21,9 +21,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $user = $this->getCurrentAdmin();
+        return view('admin.dashboard');
+    }
 
-        return view('admin.dashboard', ['user' => $user]);
+    public function settings() {
+        return view('admin.settings');
     }
 
     /**

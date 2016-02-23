@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
@@ -16,13 +16,9 @@
             <a href="#" id="logo-container" class="brand-logo">Logo</a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="<?php echo url('news'); ?>">News</a></li>
-                <li><a href="<?php echo url('auth/register'); ?>" class="waves-effect waves-dark">S'inscrire</a></li>
-                <li><a href="<?php echo url('auth/login'); ?>" class="waves-effect waves-light">Se Connecter</a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
                 <li><a href="<?php echo url('news'); ?>">News</a></li>
-                <li><a href="<?php echo url('auth/register'); ?>" class="waves-effect waves-dark">S'inscrire</a></li>
-                <li><a href="<?php echo url('auth/login'); ?>" class="waves-effect waves-light">Se Connecter</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>

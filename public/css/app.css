@@ -10,7 +10,7 @@ body {
 }
 
 main {
-  min-height: 800px;
+  min-height: 600px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -76,6 +76,7 @@ h1 {
 .card {
   overflow: hidden;
 }
+
 #blog-post-full .card-image {
   background-color: #1180A5;
 }

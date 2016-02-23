@@ -46,6 +46,9 @@ a.button-collapse.top-nav {
 #index-banner .header{color:#FFF}
 #index-banner h4{margin-bottom:40px}
 #index-banner h1{margin-top:16px}
+#index-banner.section.no-pad-bot {
+  padding: 27px 0 0 15px;
+}
 @media only screen and (max-width: 992px){#index-banner h1{margin-top:60px}#index-banner h4{margin-bottom:15px}}
 @media only screen and (max-width: 600px){#index-banner h4{margin-bottom:0}}
 /*** END BANNER ***/
@@ -173,3 +176,83 @@ ul.side-nav.fixed li a {
   padding: 10px 14px;
 }
 /*** END CARDS ***/
+
+/*** TABLES ***/
+.manage-table .post-online {
+  cursor: pointer;
+}
+
+.manage-table .fixed-action-btn {
+  bottom: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  position: relative;
+  right: 0;
+  z-index: 998;
+}
+
+.manage-table .fixed-action-btn ul {
+  bottom: 64px;
+  left: inherit;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+}
+
+.manage-table .fixed-action-btn.horizontal ul {
+  bottom: 0;
+  height: 100%;
+  left: inherit;
+  position: absolute;
+  right: 100px;
+  text-align: right;
+  top: -5px;
+  width: 300px;
+
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+}
+
+@media only screen and (max-width: 600px) {
+  .manage-table .fixed-action-btn {
+    height: 100%;
+    padding: 0;
+  }
+
+  .manage-table .btn-floating.btn-large {
+    width: 25.5px;
+    height: 25.5px;
+    margin: 5px;
+  }
+
+  .manage-table .btn-floating.btn-large i {
+    line-height: 25.5px;
+  }
+
+  .manage-table .btn-large {
+    line-height: 26px;
+  }
+
+  .manage-table .btn-large i {
+    font-size: 1rem;
+  }
+
+  .manage-table .fixed-action-btn.horizontal.active ul {
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    
+    transform: translate(0, -300%);
+    -webkit-transform: translate(0, -300%);
+  }
+
+  .manage-table .fixed-action-btn.horizontal.active ul li {
+    display: list-item;
+    margin: 0 0 15px 0;
+  }
+}
+
+/*** END TABLES ***/
