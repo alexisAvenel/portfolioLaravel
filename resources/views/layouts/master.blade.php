@@ -8,7 +8,7 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="http://fonts.googleapis.com/icon?family=Roboto" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="<?php echo asset('css/materialize.css'); ?>" media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="<?php echo asset('css/app.css'); ?>" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="<?php echo asset('css/app.css'); ?>"/>
 </head>
 <body>
     <nav class="amber" role="navigation">
@@ -34,7 +34,7 @@
         </div>
     </main>
 
-    <footer class="page-footer teal">
+    <footer class="page-footer grey darken-4">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
@@ -70,7 +70,7 @@
 
     <!--    Scripts-->
     <script type="text/javascript" src="<?php echo asset('js/jquery.min.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('js/materialize.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo asset('js/materialize.min.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('js/init.js'); ?>"></script>
 
     </body>

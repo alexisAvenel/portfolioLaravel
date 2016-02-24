@@ -14,6 +14,10 @@ header, main, footer {
   }  
 }
 
+body {
+  background : #fff;
+}
+
 a.button-collapse.top-nav {
   position: absolute;
   text-align: center;

@@ -58,9 +58,9 @@
                         <div class="search-results"></div>
                     </div>
                 </li>
-                <li class="bold"><a href="/admin" class="waves-effect waves-orange">Dashboard</a></li>
-                <li class="bold"><a href="/admin/news" class="waves-effect waves-orange">News</a></li>
-                <li class="bold"><a href="/admin/parametres" class="waves-effect waves-orange">Paramètres</a></li>
+                <li class="bold {!! classActivePath('admin') !!}"><a href="/admin" class="waves-effect waves-orange">Dashboard</a></li>
+                <li class="bold {!! classActivePath('admin/news') !!}"><a href="/admin/news" class="waves-effect waves-orange">News</a></li>
+                <li class="bold {!! classActivePath('admin/settings') !!}"><a href="/admin/settings" class="waves-effect waves-orange">Paramètres</a></li>
             </ul>
         </header>
         <main>
@@ -69,7 +69,7 @@
 
         <!--  Scripts-->
         <script type="text/javascript" src="<?php echo asset('js/jquery.min.js'); ?>"></script>
-        <script type="text/javascript" src="<?php echo asset('js/materialize.js'); ?>"></script>
+        <script type="text/javascript" src="<?php echo asset('js/materialize.min.js'); ?>"></script>
         <script type="text/javascript" src="<?php echo asset('js/init.js'); ?>"></script>
         <script type="text/javascript" src="<?php echo asset('js/admin.custom.js'); ?>"></script>
     </body>

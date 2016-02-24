@@ -2,13 +2,13 @@
 if($post->id) {
 	$options = [
 		'method' => 'put',
-		'url' => action('PostsController@update', $post), 
+		'url' => action('Admin\PostsController@update', $post), 
 		'files' => true
 	];
 } else {
 	$options = [
 		'method' => 'post',
-		'url' => action('PostsController@store'), 
+		'url' => action('Admin\PostsController@store'), 
 		'files' => true
 	];
 }
@@ -42,7 +42,7 @@ $options['class'] = 'col s12';
 
 		<div class="input-field col s12">
 		{!! Form::label('resumed', 'Résumé de l\'article') !!}
-		{!! Form::textarea('resumed', null, ['class' => 'materialize-textarea']) !!}
+		{!! Form::textarea('resumed', null, ['class' => 'materialize-textarea', 'length' => '100']) !!}
 		</div>
 
 		<div class="input-field col s12">
@@ -63,10 +63,7 @@ $options['class'] = 'col s12';
 						}
 						?>
 					@endforeach
-					<option value="{{ $tag_id }}" <?php if(isset($selected[$tag_id])): echo $selected[$tag_id]; endif; ?> >
-						{{ $tag_name }}
-					</option>
-
+					<option value="{{ $tag_id }}" <?php if(isset($selected[$tag_id])): echo $selected[$tag_id]; endif; ?> >{{ $tag_name }}</option>
 				@endforeach
 			</select>
 			{!! Form::label('tags[]', 'Tags') !!}
@@ -79,7 +76,7 @@ $options['class'] = 'col s12';
 
 		@if($post->image)
 		<div class="col s2">
-			<img src="/images/gallery/{{ $post->image }}" class="responsive-img">
+			<img src="<?php echo asset('uploads/news/'.$post['slug'].'/'.$post['image']); ?>" class="responsive-img">
 		</div>
 		@endif
 		<div class="col s10">

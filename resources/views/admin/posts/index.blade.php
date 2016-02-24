@@ -38,13 +38,12 @@
 				@foreach($posts as $post)
 				<tr data-id="{{ $post->id }}">
 					<td>{{ $post->title }}</td>
-					<td>{{ $post->created_at->format('d-m-Y') }}</td>
-					<td>{{ $post->updated_at->format('d-m-Y') }}</td>
-					<td>{{ $post->published_at->format('d-m-Y') }}</td>
+					<td>{{ $post->created_at->format('d/m/Y') }}</td>
+					<td>{{ $post->updated_at->format('d/m/Y') }}</td>
+					<td>{{ $post->published_at->format('d/m/Y') }}</td>
 					<td>@if($post->category) {{ $post->category->name }} @else NULL @endif</td>
 					<td class="post-online" data-online="{{ $post->online }}">@if($post->online) <i class="small material-icons green-text">visibility</i> @else <i class="small material-icons red-text">visibility_off</i> @endif</td>
 					<td>
-						<!--<a class="btn waves-effect waves-light block-center light-blue darken-3" href="{{ route('admin.news.edit', $post) }}">Editer</a>-->
 						<div class="fixed-action-btn horizontal click-to-toggle">
 							<a class="btn-floating btn-large red">
 								<i class="large mdi-navigation-menu"></i>
@@ -55,7 +54,7 @@
 										<i class="material-icons">content_cut</i>
 									</a>
 								</li>
-								<li>
+								<li class="post-delete">
 									<a href="{{ route('admin.news.destroy', $post) }}" class="btn-floating waves-effect waves-light red">
 										<i class="material-icons">clear</i>
 									</a>

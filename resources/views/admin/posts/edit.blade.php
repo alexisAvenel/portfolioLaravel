@@ -11,9 +11,11 @@
 
 <div class="section">
     <div class="container">
-		
-		@include('admin.posts.form')
-
+    	<div class="row">
+			<div class="col s12 m8 l6">
+				@include('admin.posts.form')
+			</div>    		
+    	</div>
     </div>
 </div>
 

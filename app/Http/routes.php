@@ -21,10 +21,10 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('r/{link}', ['as' => 'link.show', 'uses' => 'LinksController@show'])->where('link','[0-9]+');
 
 	/*** Admin ***/
-	Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
-		Route::get('/', 'Admin\AdminController@index', ['as' => 'admin.home']);
+	Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin'], 'namespace' => 'Admin'], function () {
+		Route::get('/', 'AdminController@index', ['as' => 'admin.home']);
 		Route::resource('news', 'PostsController');
-		Route::get('/parametres', 'Admin\AdminController@settings', ['as' => 'admin.settings']);
+		Route::get('/settings', 'AdminController@settings', ['as' => 'admin.settings']);
 
 		Route::post('/ajax/update_post_online', 'PostsController@updatePostOnline');
 	});
