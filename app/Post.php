@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -28,9 +27,10 @@ class Post extends Model
 					->orderBy('updated_at', 'desc');
 	}
 
-	public function setSlugAttribute($value) {
-		if(empty($value)) {
-			$this->attributes['slug'] = Str::slug($this->title);
+	public function setTitleAttribute($value) {
+		if(!empty($value)) {
+			$this->attributes['title'] = $value;
+			$this->attributes['slug'] = str_slug($this->title, '-');
 		}
 	}
 
