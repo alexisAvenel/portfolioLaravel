@@ -64,8 +64,8 @@ class PostsController extends Controller
             if($postRequest) {
                 if($request->hasFile('image')) {
                     $file = $request->file('image');
-                    $folder = base_path() . '/public/uploads/news/'.$post->slug.'/';
-                    $fileName = $post->id.'.'.$file->getClientOriginalExtension();
+                    $folder = base_path() . '/public/uploads/news/'.str_slug($postRequest['title']).'/';
+                    $fileName = str_slug($postRequest['title']).'.'.$file->getClientOriginalExtension();
                     
                     $file->move($folder, $fileName);
 
@@ -127,20 +127,20 @@ class PostsController extends Controller
         } else {
             $postRequest = $request->all();
             if($postRequest) {
+                $fileName = $post->image;
                 if($request->hasFile('image')) {
                     $file = $request->file('image');
                     $folder = base_path() . '/public/uploads/news/'.str_slug($post->title).'/';
-                    $fileName = $post->id.'.'.$file->getClientOriginalExtension();
+                    $fileName = str_slug($post->title).'.'.$file->getClientOriginalExtension();
                     
                     $file->move($folder, $fileName);
-
                     $postRequest['image'] = $fileName;
-                } else {
-                    if(!empty($post->slug) && str_slug($postRequest['title']) != $post->slug) {
-                        File::makeDirectory(base_path() . '/public/uploads/news/'.str_slug($postRequest['title']), 0775, true);
-                        File::copy(base_path() . '/public/uploads/news/'.$post->slug.'/'.$post->image, base_path() . '/public/uploads/news/'.str_slug($postRequest['title']).'/');
-                        File::deleteDirectory(base_path() . '/public/uploads/news/'.$post->slug);
-                    }
+                }
+
+                if(!empty($post->slug) && str_slug($postRequest['title']) != $post->slug) {
+                    File::makeDirectory(base_path() . '/public/uploads/news/'.str_slug($postRequest['title']), 0775, true);
+                    File::move(base_path() . '/public/uploads/news/' . $post->slug . '/' . $fileName, base_path() . '/public/uploads/news/' . str_slug($postRequest['title']) . '/' . $fileName);
+                    File::deleteDirectory(base_path() . '/public/uploads/news/' . $post->slug);
                 }
 
                 $post->update($postRequest);
@@ -148,7 +148,7 @@ class PostsController extends Controller
                 $post->tags()->sync($tags);                
             }
 
-            return redirect(route('admin.news.edit', $id));
+            return redirect(route('admin.news.index'));
         }
     }
 

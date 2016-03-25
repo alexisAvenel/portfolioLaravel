@@ -15,4 +15,10 @@ $(document).ready(function() {
     $('.datepicker').pickadate({selectYears: 20});
     $('select').material_select();
 
+    // News
+    $('.chip .material-icons').click(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    });
+
 });

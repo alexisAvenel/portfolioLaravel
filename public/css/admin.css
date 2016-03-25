@@ -45,6 +45,13 @@ a.button-collapse.top-nav {
   width: 90%;
 }
 
+/*** FORM ***/
+form img.form-image {
+  height: 80px;
+  width: 80px;
+}
+/*** END FORM ***/
+
 /*** BANNER ***/
 #index-banner .container{position:relative}
 #index-banner .header{color:#FFF}

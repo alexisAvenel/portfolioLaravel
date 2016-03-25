@@ -14,7 +14,7 @@ if($post->id) {
 }
 
 $postList = $post->tags->lists('id');
-$options['class'] = 'col s12';
+$options['class'] = 'col s12 postForm';
 ?>
 
 @if($errors->any())
@@ -75,11 +75,11 @@ $options['class'] = 'col s12';
 		</div>
 
 		@if($post->image)
-		<div class="col s2">
-			<img src="<?php echo asset('uploads/news/'.$post['slug'].'/'.$post['image']); ?>" class="responsive-img">
+		<div class="col s3">
+			<img src="<?php echo asset('uploads/news/'.$post['slug'].'/'.$post['image']); ?>" class="form-image responsive-img circle valign">
 		</div>
 		@endif
-		<div class="col s10">
+		<div class="col s9">
 			<div class="file-field input-field">
 				<div class="btn">
 					<span>File</span>
