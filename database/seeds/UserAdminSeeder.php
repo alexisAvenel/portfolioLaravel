@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use Hash;
 
 class UserAdminSeeder extends Seeder
 {
@@ -16,7 +15,7 @@ class UserAdminSeeder extends Seeder
         DB::table('users')->insert([
                 'name' => 'Alexis',
                 'email' => 'chouk1991@gmail.com',
-                'password' => Hash::make('admin'),
+                'password' => bcrypt('admin'),
                 'is_admin' => 1,
                 'avatar' => 'alexisAvenel.jpg'
             ]);

@@ -26,7 +26,7 @@
 					<div class="card-content">
 						<div class="chip">
 							<i class="material-icons time">access_time</i>
-							{{ $post->published_at->format('d/m/Y') }}
+							{{ $post->published_at }}
 						</div>
 						<p class="flow-text"><blockquote>{{ $post->getResumed() }}</blockquote>></p>
 

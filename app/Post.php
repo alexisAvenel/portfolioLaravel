@@ -23,8 +23,8 @@ class Post extends Model
 
 	public function scopeAdminIndex($query) {
 		return $query->orderBy('online', 'asc')
-					->orderBy('published_at', 'desc')
-					->orderBy('updated_at', 'desc');
+					 ->orderBy('published_at', 'desc')
+					 ->orderBy('updated_at', 'desc');
 	}
 
 	public function setTitleAttribute($value) {
