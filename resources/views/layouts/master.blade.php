@@ -9,6 +9,7 @@
     <link href="http://fonts.googleapis.com/icon?family=Roboto" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="<?php echo asset('css/materialize.css'); ?>" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="<?php echo asset('css/app.css'); ?>"/>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
     <nav class="amber" role="navigation">
@@ -16,9 +17,11 @@
             <a href="#" id="logo-container" class="brand-logo">Logo</a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="<?php echo url('news'); ?>">News</a></li>
+                <li><a href="<?php echo url('contact'); ?>">Contact</a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
                 <li><a href="<?php echo url('news'); ?>">News</a></li>
+                <li><a href="<?php echo url('contact'); ?>">Contact</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>

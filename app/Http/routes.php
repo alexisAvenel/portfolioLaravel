@@ -14,11 +14,10 @@
 Route::group(['middleware' => ['web']], function () {
 	/*** Resources ***/
 	Route::resource('news', 'PostsController');
-	Route::resource('link', 'LinksController', ['only' => ['create', 'store']]);
 
 	/*** Gets ***/
-	Route::get('/', ['as' => 'home', 'uses' => 'WelcomeController@index']);
-	Route::get('r/{link}', ['as' => 'link.show', 'uses' => 'LinksController@show'])->where('link','[0-9]+');
+	Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+	Route::get('/contact', ['as' => 'contact', 'uses' => 'ContactController@index']);
 
 	/*** Admin ***/
 	Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin'], 'namespace' => 'Admin'], function () {

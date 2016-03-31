@@ -7,17 +7,17 @@ use \Input;
 /**
 * 
 */
-class WelcomeController extends Controller
+class ContactController extends Controller
 {
 	
 	public function __construct()
 	{
-		$this->middleware('ip');
+		$this->middleware('auth');
 	}
 
 	public function index()
 	{
-		return view('welcome');
+		return view('contact');
 	}
 
 }
