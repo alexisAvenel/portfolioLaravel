@@ -14,7 +14,7 @@
 						@else
 							<img src="<?php echo asset('images/gallery/default.jpg'); ?>" alt="sample">
 						@endif
-						<span class="card-title">{{ $post->title }} @if($post->category) ( <em> {{ $post->category->name }} </em> ) @endif </span>
+						<span class="card-title"><p>{{ $post->title }}</p> @if($post->category) <em>( <a href="/category/{{ $post->category->name }}">{{ $post->category->name }}</a> )</em> @endif </span>
 						@if(count($post->tags) > 0)
 						<span class="card-title blog-post-full-cat right grey darken-4">
 							@foreach($post->tags as $tag)
@@ -24,12 +24,15 @@
 						@endif
 					</div>
 					<div class="card-content">
-						<div class="chip">
-							<i class="material-icons time">access_time</i>
-							{{ $post->published_at }}
+						<div class="col s12 m12 l12">
+							<p class="flow-text">{{ $post->getResumed() }}</p>
 						</div>
-						<p class="flow-text"><blockquote>{{ $post->getResumed() }}</blockquote>></p>
-
+						<div class="col s12 m12 l12">
+							<div class="chip right">
+								<i class="material-icons time">access_time</i>
+								{{ $post->published_at->format('d/m/Y') }}
+							</div>
+						</div>
 					</div>
 					<div class="card-action">
 						Rédigé par <a href="#">Alexis Avenel</a>

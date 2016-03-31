@@ -40,7 +40,7 @@
 					<td>{{ $post->title }}</td>
 					<td>{{ $post->created_at->format('d/m/Y') }}</td>
 					<td>{{ $post->updated_at->format('d/m/Y') }}</td>
-					<td>{{ $post->published_at->format('d/m/Y') }}</td>
+					<td>@if(strtotime($post->published_at) > 0){{ $post->published_at->format('d/m/Y') }}@endif</td>
 					<td>@if($post->category) {{ $post->category->name }} @else NULL @endif</td>
 					<td class="post-online" data-online="{{ $post->online }}">@if($post->online) <i class="small material-icons green-text">visibility</i> @else <i class="small material-icons red-text">visibility_off</i> @endif</td>
 					<td>

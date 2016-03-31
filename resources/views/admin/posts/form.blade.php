@@ -36,7 +36,7 @@ $options['class'] = 'col s12 postForm';
 		</div>
 
 		<div class="input-field col s12">
-		{!! Form::label('slug', 'Slug') !!}
+		{!! Form::label('slug', ' ') !!}
 		{!! Form::text('slug', null, ['disabled' => true]) !!}
 		</div>
 

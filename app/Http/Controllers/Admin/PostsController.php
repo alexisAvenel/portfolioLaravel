@@ -62,6 +62,7 @@ class PostsController extends Controller
         } else {
             $postRequest = $request->all();
             if($postRequest) {
+                if($postRequest['online'] == 1): $postRequest['published_at'] = date('Y-m-d H:i:s'); endif;
                 if($request->hasFile('image')) {
                     $file = $request->file('image');
                     $folder = base_path() . '/public/uploads/news/'.str_slug($postRequest['title']).'/';
@@ -71,8 +72,11 @@ class PostsController extends Controller
 
                     $postRequest['image'] = $fileName;
                 }
-                if($postRequest['online'] == 1): $postRequest['published_at'] = date('Y-m-d H:i:s'); endif;
-                Post::create($postRequest);
+
+                $tags = ($request->get('tags')) ? $request->get('tags') : array();
+
+                $post = Post::create($postRequest);
+                $post->tags()->sync($tags);
             }
             return redirect(route('admin.news.index'));
         }
