@@ -1,5 +1,15 @@
 @extends('layouts.master')
 
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -8,7 +18,7 @@
                 <div class="panel-heading"><h1>Contact</h1></div>
 
                 <div class="panel-body">
-					{!! Form::open(['url' => 'contact', 'method' => 'post']) !!}
+					{!! Form::open(['url' => action('ContactController@sendMail'), 'method' => 'post']) !!}
 						
 						<div class="row">
 							<div class="input-field col s6">
