@@ -18,7 +18,7 @@
 
 							<div class="input-field col s6">
 							{!! Form::label('email', 'Votre email') !!}
-							{!! Form::text('email') !!}
+							{!! Form::email('email') !!}
 							</div>
 
 							<div class="input-field col s12">
@@ -26,7 +26,9 @@
 							{!! Form::textarea('message', null, ['class' => 'materialize-textarea', 'required' => 'required']) !!}
 							</div>
 							
-							<div class="g-recaptcha" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
+							<div class="input-field col s12">
+								<div class="g-recaptcha" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
+							</div>
 
 							<div class="row">
 								<div class="col s12">

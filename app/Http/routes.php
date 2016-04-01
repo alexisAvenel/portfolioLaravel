@@ -19,6 +19,9 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 	Route::get('/contact', ['as' => 'contact', 'uses' => 'ContactController@index']);
 
+	/*** Posts ***/
+	Route::post('/contact', 'ContactController@sendMail');
+
 	/*** Admin ***/
 	Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin'], 'namespace' => 'Admin'], function () {
 		Route::get('/', 'AdminController@index', ['as' => 'admin.home']);
