@@ -17,18 +17,21 @@ Route::group(['middleware' => ['web']], function () {
 
 	/*** Gets ***/
 	Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
-	Route::get('/contact', ['as' => 'contact', 'uses' => 'ContactController@index']);
+	Route::get('/contact', ['as' => 'contact', 'uses' => 'ContactsController@index']);
 
 	/*** Posts ***/
-	Route::post('/contact', 'ContactController@sendMail');
+	Route::post('/contact', 'ContactsController@sendMail');
 
 	/*** Admin ***/
 	Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin'], 'namespace' => 'Admin'], function () {
 		Route::get('/', 'AdminController@index', ['as' => 'admin.home']);
-		Route::resource('news', 'PostsController');
 		Route::get('/settings', 'AdminController@settings', ['as' => 'admin.settings']);
+		Route::resource('news', 'PostsController');
+		Route::resource('contacts', 'ContactsController');
 
+		/*** AJAX ***/
 		Route::post('/ajax/update_post_online', 'PostsController@updatePostOnline');
+		Route::post('/ajax/get_contact_message', 'ContactsController@getMessage');
 	});
 
 	/*** Auth ***/

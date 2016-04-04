@@ -7,12 +7,13 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator;
 use App\Traits\CaptchaTrait;
-use Illuminate\Support\Facades\Mail;
+//use Illuminate\Support\Facades\Mail;
+use App\Contact;
 
 /**
 * 
 */
-class ContactController extends Controller
+class ContactsController extends Controller
 {
 	use CaptchaTrait;
 
@@ -53,27 +54,27 @@ class ContactController extends Controller
             return redirect('contact')->with('status', 'Votre demande a bien été envoyée.');
         } else {
             return redirect('contact')->back()
-                                    ->withErrors(["Votre demande n'a pas pu être envoyée."])
-                                    ->withInput();
+                                      ->withErrors(["Votre demande n'a pas pu être envoyée."])
+                                      ->withInput();
         }
     }
 
     private function _sendMailToWebmaster($arguments) {
 
-        $messageContent = '';
         $message = $arguments['message'];
         $email   = ($arguments['email']) ? $arguments['email'] : '';
         $name    = $arguments['name'];
 
-        if(!empty($email)) {
-            $messageContent = "Message venant de : " . $name . " (" . $email . ")" . "\n\t";
-        }
+        $data['name']  = $name;
+        $data['email'] = $email;
+        $data['message']  = $message;
+        $data['date']  = date('Y-m-d H:i:s');
 
-        $messageContent .= $message;
+        $isMailSend = Contact::create($data);
 
-        $isMailSend = Mail::send('contact', function ($mail) {
-            $mail->to(env('MAIL_USERNAME'), $name)->subject($messageContent)
-        });
+        /*$isMailSend = Mail::send('contact', ['name', $name], function ($mail) use ($messageContent) {
+            $mail->to(env('MAIL_USERNAME'), "Alexis")->subject($messageContent);
+        });*/
 
         return $isMailSend;
     }

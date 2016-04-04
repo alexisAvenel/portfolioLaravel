@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
 
+use App\Contact;
+
 class AdminController extends Controller
 {
     public function __construct() {
@@ -21,7 +23,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $contacts = Contact::orderBy('date', 'desc')->take(3)->get();
+
+        return view('admin.dashboard', compact('contacts'));
     }
 
     public function settings() {

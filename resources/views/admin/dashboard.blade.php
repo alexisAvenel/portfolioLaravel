@@ -8,25 +8,26 @@
     </div>
 </div>
 
-<div class="section">
+<div id="dashboard" class="section">
     <div class="container">
         <div class="row">
 			<div id="card-stats">
 			    <div class="row">
-			        <div class="col s12 m6 l3">
+			        <div class="col s12 m6 l6">
 			            <div class="card">
-			                <div class="card-content  green white-text">
-			                    <p class="card-stats-title"><i class="mdi-social-group-add"></i> New Clients</p>
-			                    <h4 class="card-stats-number">566</h4>
-			                    <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 15% <span class="green-text text-lighten-5">from yesterday</span>
-			                    </p>
+			                <div class="card-content green white-text">
+			                    <p class="card-stats-title"><i class="material-icons">email</i> Derniers messages de contact</p>
+			                    <h4 class="card-stats-number"></h4>
+			                    <p class="card-stats-compare"></p>
 			                </div>
-			                <div class="card-action  green darken-2">
-			                    <div id="clients-bar" class="center-align"><canvas width="227" height="25" style="display: inline-block; width: 227px; height: 25px; vertical-align: top;"></canvas></div>
+			                <div id="contact-collection" class="card-action green darken-2 black-text">
+			                    @foreach($contacts as $contact)
+			                    	<p class="contact-field" data-id="{{$contact->id}}"><b>{{ $contact->date->format('d/m/Y') }}</b> | <i class="truncate">{{ $contact->message }}</i></p>
+			                    @endforeach
 			                </div>
 			            </div>
 			        </div>
-			        <div class="col s12 m6 l3">
+			        <div class="col s12 m6 l6">
 			            <div class="card">
 			                <div class="card-content pink lighten-1 white-text">
 			                    <p class="card-stats-title"><i class="mdi-editor-insert-drive-file"></i> New Invoice</p>
@@ -39,35 +40,22 @@
 			                </div>
 			            </div>
 			        </div>
-			        <div class="col s12 m6 l3">
-			            <div class="card">
-			                <div class="card-content blue-grey white-text">
-			                    <p class="card-stats-title"><i class="mdi-action-trending-up"></i> Today Profit</p>
-			                    <h4 class="card-stats-number">$806.52</h4>
-			                    <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 80% <span class="blue-grey-text text-lighten-5">from yesterday</span>
-			                    </p>
-			                </div>
-			                <div class="card-action blue-grey darken-2">
-			                    <div id="profit-tristate" class="center-align"><canvas width="227" height="25" style="display: inline-block; width: 227px; height: 25px; vertical-align: top;"></canvas></div>
-			                </div>
-			            </div>
-			        </div>
-			        <div class="col s12 m6 l3">
-			            <div class="card">
-			                <div class="card-content purple white-text">
-			                    <p class="card-stats-title"><i class="mdi-editor-attach-money"></i>Total Sales</p>
-			                    <h4 class="card-stats-number">$8990.63</h4>
-			                    <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 70% <span class="purple-text text-lighten-5">last month</span>
-			                    </p>
-			                </div>
-			                <div class="card-action purple darken-2">
-			                    <div id="sales-compositebar" class="center-align"><canvas width="214" height="25" style="display: inline-block; width: 214px; height: 25px; vertical-align: top;"></canvas></div>
-			                </div>
-			            </div>
-			        </div>
 			    </div>
 			</div>
         </div>
     </div>
+	{!! Form::token() !!}
+</div>
+
+<!-- Modal Structure -->
+<div id="modal-dashboard" class="modal modal-fixed-footer">
+	<div class="modal-content">
+		<h4></h4>
+		<blockquote></blockquote>
+	</div>
+	<div class="modal-footer">
+		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fermer</a>
+		<a href="#!" class="waves-effect waves-green btn-flat amber hide">Répondre</a>
+	</div>
 </div>
 @endsection

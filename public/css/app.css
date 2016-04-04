@@ -27,8 +27,11 @@ h1 {
   margin: 2.1rem 0 1.68rem 0;
 }
 
-blockquote {
+blockquote, .blockquote {
   border-left: 5px solid #FFC107;
+  padding-left: 1.5rem;
+  font-size: 1em;
+  word-break: break-word;
 }
 
 .block-center {
@@ -49,6 +52,12 @@ nav ul a {
   color : #212121;
 }
 /*** END NAV ***/
+
+/*** CAPTCHA ***/
+.g-recaptcha {
+  margin: auto;
+}
+/*** END CAPTCHA ***/
 
 /*** ADMIN BLOC ***/
 #admin-bloc-connection {

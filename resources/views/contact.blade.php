@@ -1,15 +1,5 @@
 @extends('layouts.master')
 
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
 @section('content')
 <div class="container">
     <div class="row">
@@ -18,7 +8,18 @@
                 <div class="panel-heading"><h1>Contact</h1></div>
 
                 <div class="panel-body">
-					{!! Form::open(['url' => action('ContactController@sendMail'), 'method' => 'post']) !!}
+
+					@if (session('status'))
+						<div class="row alert-message">
+							<div class="col s12">
+							    <div class="chip green accent-4 white-text">
+							        {{ session('status') }}
+							    </div>
+							</div>
+						</div>
+					@endif
+
+					{!! Form::open(['url' => action('ContactsController@sendMail'), 'method' => 'post']) !!}
 						
 						<div class="row">
 							<div class="input-field col s6">
@@ -37,16 +38,17 @@
 							</div>
 							
 							<div class="input-field col s12">
-								<div class="g-recaptcha" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
-							</div>
-
-							<div class="row">
-								<div class="col s12">
-									<button class="btn waves-effect waves-light block-center light-blue darken-3" type="submit">Valider</button>
+								<div class="valign-wrapper">
+									<div class="g-recaptcha valign" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
 								</div>
 							</div>
 						</div>
 
+						<div class="row">
+							<div class="col s12">
+								<button class="btn waves-effect waves-light block-center light-blue darken-3" type="submit">Valider</button>
+							</div>
+						</div>
 
 					{!! Form::close() !!}
                 </div>

@@ -1,5 +1,33 @@
 $(document).ready(function(){
 
+    /*** Dashboard Modal ***/
+    $(document).on('click', '.contact-field', function(e){
+
+        var token = $(e.currentTarget).parents('#dashboard').find('input[name=_token]').val(),
+            name;
+
+        $.ajax({
+            url: '/admin/ajax/get_contact_message',
+            headers: {'X-CSRF-TOKEN': token},
+            data: {contact_id : $(e.currentTarget).data('id')},
+            type: 'POST',
+            datatype: 'JSON',
+            success: function (resp) {
+                $('#modal-dashboard').openModal({
+                    ready: function() {
+                        name = resp.data.contact.name;
+                        name += (resp.data.contact.email.length) ? '<em>('+resp.data.contact.email+')</em>' : '';
+                        console.log(name);
+                        $('#modal-dashboard').find('h4').html(name);
+                        $('#modal-dashboard').find('blockquote').html(resp.data.contact.message);
+                    }
+                });
+            }
+        });
+
+    });
+
+
     /*** Post update online/offline ***/
     $(document).on('click', '.post-online', function(){
         var postId, online, token, url, data;

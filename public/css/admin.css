@@ -45,6 +45,32 @@ a.button-collapse.top-nav {
   width: 90%;
 }
 
+#card-stats .card-stats-title i {
+  vertical-align: middle;
+}
+
+/*** MODAL ***/
+.modal-content h4 em {
+  font-size: 1rem;
+}
+/*** END MODAL ***/
+
+/*** DASHBOARD ***/
+#contact-collection .contact-field {
+  cursor: pointer;
+}
+#contact-collection .contact-field:hover {
+  color: #fff;
+}
+.contact-field i,
+.contact-field b {
+  display: inline-flex;
+}
+.contact-field i {
+  width: 80%;
+}
+/*** END DASHBOARD ***/
+
 /*** FORM ***/
 form img.form-image {
   height: 80px;
