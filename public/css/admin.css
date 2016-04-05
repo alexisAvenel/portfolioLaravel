@@ -56,7 +56,7 @@ a.button-collapse.top-nav {
 /*** END MODAL ***/
 
 /*** DASHBOARD ***/
-#contact-collection .contact-field {
+.contact-field {
   cursor: pointer;
 }
 #contact-collection .contact-field:hover {
@@ -64,10 +64,12 @@ a.button-collapse.top-nav {
 }
 .contact-field i,
 .contact-field b {
-  display: inline-flex;
+  display: inline-block;
 }
 .contact-field i {
-  width: 80%;
+  width: auto;
+  max-width: 80%;
+  vertical-align: middle;
 }
 /*** END DASHBOARD ***/
 
@@ -84,7 +86,7 @@ form img.form-image {
 #index-banner h4{margin-bottom:40px}
 #index-banner h1{margin-top:16px}
 #index-banner.section.no-pad-bot {
-  padding: 27px 0 0 15px;
+  padding: 13px 0 0 15px;
 }
 @media only screen and (max-width: 992px){#index-banner h1{margin-top:60px}#index-banner h4{margin-bottom:15px}}
 @media only screen and (max-width: 600px){#index-banner h4{margin-bottom:0}}

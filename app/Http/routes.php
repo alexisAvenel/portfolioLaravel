@@ -24,10 +24,15 @@ Route::group(['middleware' => ['web']], function () {
 
 	/*** Admin ***/
 	Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin'], 'namespace' => 'Admin'], function () {
-		Route::get('/', 'AdminController@index', ['as' => 'admin.home']);
-		Route::get('/settings', 'AdminController@settings', ['as' => 'admin.settings']);
+		Route::get('/', 'AdminController@index', ['as' => 'adminHome']);
+		Route::get('/settings', 'AdminController@settings', ['as' => 'adminSettings']);
+		Route::get('/contacts', 'ContactsController@index', ['as' => 'adminContacts']);
+		Route::get('/contacts/send/{id}', 'ContactsController@sendAnswer', ['as' => 'adminContactsSend'])
+				->where('id', '[0-9]+');
+
 		Route::resource('news', 'PostsController');
-		Route::resource('contacts', 'ContactsController');
+
+		Route::post('/contacts/send/{id}', 'ContactsController@sendMail');
 
 		/*** AJAX ***/
 		Route::post('/ajax/update_post_online', 'PostsController@updatePostOnline');

@@ -9,24 +9,27 @@
     </div>
 </div>
 
-<div class="section">
+<div id="section" class="section">
     <div class="container">
 
 		<ul class="collection">
 	    	@foreach ($contacts as $contact)
-			<li class="collection-item avatar">
+			<li class="collection-item avatar contact-field" data-id="{{$contact->id}}">
 				<i class="material-icons circle @if(!empty($contact->email)) @if($contact->answered == 1) green @else red @endif @endif">email</i>
 				<span class="title"><strong>Message de : </strong>{{ $contact->name }}</span>
 				<p class="blockquote"><strong>Son message : </strong><br/>
 					{{ $contact->message }}
 				</p>
-				<a href="#!" class="secondary-content"><i class="material-icons">send</i></a>
+				@if(!empty($contact->email) && $contact->answered == 0)
+				<a href="{{ url('admin/contacts/send', [$contact->id]) }}" class="secondary-content"><i class="material-icons">send</i></a>
+				@endif
 			</li>
 	    	@endforeach
 		</ul>
 
     </div>
 
+	@if($contacts->lastPage() != 1)
 	<div class="row">
 		<div class="col s12">
 			<div class="center">
@@ -40,7 +43,11 @@
 			</div>
 		</div>
 	</div>
+	@endif
 
+	{!! Form::token() !!}
 </div>
+
+@extends('admin.modals.modal-contact')
 
 @endsection

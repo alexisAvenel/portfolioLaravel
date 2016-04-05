@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<div id="dashboard" class="section">
+<div id="section" class="section">
     <div class="container">
         <div class="row">
 			<div id="card-stats">
@@ -22,7 +22,10 @@
 			                </div>
 			                <div id="contact-collection" class="card-action green darken-2 black-text">
 			                    @foreach($contacts as $contact)
-			                    	<p class="contact-field" data-id="{{$contact->id}}"><b>{{ $contact->date->format('d/m/Y') }}</b> | <i class="truncate">{{ $contact->message }}</i></p>
+			                    	<p class="contact-field" data-id="{{$contact->id}}">
+			                    		<b class="chip green white-text">{{ $contact->date->format('d/m/Y') }}</b> 
+			                    		<i class="truncate">« {{ $contact->message }} »</i>
+			                    	</p>
 			                    @endforeach
 			                </div>
 			            </div>
@@ -47,15 +50,6 @@
 	{!! Form::token() !!}
 </div>
 
-<!-- Modal Structure -->
-<div id="modal-dashboard" class="modal modal-fixed-footer">
-	<div class="modal-content">
-		<h4></h4>
-		<blockquote></blockquote>
-	</div>
-	<div class="modal-footer">
-		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fermer</a>
-		<a href="#!" class="waves-effect waves-green btn-flat amber hide">Répondre</a>
-	</div>
-</div>
+@extends('admin.modals.modal-contact')
+
 @endsection

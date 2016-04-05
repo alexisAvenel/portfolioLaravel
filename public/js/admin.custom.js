@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
-    /*** Dashboard Modal ***/
+    /*** Contact Message Modal ***/
     $(document).on('click', '.contact-field', function(e){
 
-        var token = $(e.currentTarget).parents('#dashboard').find('input[name=_token]').val(),
+        var token = $(e.currentTarget).parents('#section').find('input[name=_token]').val(),
             name;
 
         $.ajax({
@@ -13,13 +13,22 @@ $(document).ready(function(){
             type: 'POST',
             datatype: 'JSON',
             success: function (resp) {
-                $('#modal-dashboard').openModal({
+                $('#modal-contact').openModal({
                     ready: function() {
                         name = resp.data.contact.name;
                         name += (resp.data.contact.email.length) ? '<em>('+resp.data.contact.email+')</em>' : '';
-                        console.log(name);
-                        $('#modal-dashboard').find('h4').html(name);
-                        $('#modal-dashboard').find('blockquote').html(resp.data.contact.message);
+                        
+                        $('#modal-contact').find('h4').html(name);
+                        $('#modal-contact').find('blockquote').html(resp.data.contact.message);
+                        $('#modal-contact').find('.modal-sender').removeClass('show').addClass('hide');
+
+                        if(resp.data.contact.email.length && resp.data.contact.answered == 0) {
+                            $('#modal-contact')
+                                .find('.modal-sender')
+                                .removeClass('hide')
+                                .addClass('show')
+                                .attr('href', '/admin/contacts/send/' + resp.data.contact.id);
+                        }
                     }
                 });
             }
