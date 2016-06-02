@@ -12,25 +12,30 @@ $(document).ready(function(){
             data: {contact_id : $(e.currentTarget).data('id')},
             type: 'POST',
             datatype: 'JSON',
+            beforeSend : function() {
+                $('#modal-contact').find('.modal-content').children().empty();
+            },
             success: function (resp) {
-                $('#modal-contact').openModal({
-                    ready: function() {
-                        name = resp.data.contact.name;
-                        name += (resp.data.contact.email.length) ? '<em>('+resp.data.contact.email+')</em>' : '';
-                        
-                        $('#modal-contact').find('h4').html(name);
-                        $('#modal-contact').find('blockquote').html(resp.data.contact.message);
-                        $('#modal-contact').find('.modal-sender').removeClass('show').addClass('hide');
+                if(resp) {
+                    $('#modal-contact').openModal({
+                        ready: function() {
+                            name = resp.data.contact.name;
+                            name += (resp.data.contact.email.length) ? '<em>('+resp.data.contact.email+')</em>' : '';
+                            
+                            $('#modal-contact').find('h4').html(name);
+                            $('#modal-contact').find('blockquote').html(resp.data.contact.message);
+                            $('#modal-contact').find('.modal-sender').removeClass('show').addClass('hide');
 
-                        if(resp.data.contact.email.length && resp.data.contact.answered == 0) {
-                            $('#modal-contact')
-                                .find('.modal-sender')
-                                .removeClass('hide')
-                                .addClass('show')
-                                .attr('href', '/admin/contacts/send/' + resp.data.contact.id);
+                            if(resp.data.contact.email.length && resp.data.contact.answered == 0) {
+                                $('#modal-contact')
+                                    .find('.modal-sender')
+                                    .removeClass('hide')
+                                    .addClass('show')
+                                    .attr('href', '/admin/contacts/send/' + resp.data.contact.id);
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         });
 
@@ -38,12 +43,17 @@ $(document).ready(function(){
 
 
     /*** Post update online/offline ***/
-    $(document).on('click', '.post-online', function(){
-        var postId, online, token, url, data;
+    $(document).on('click', '.post-online', function(e){
+        var $btn = $(e.currentTarget), 
+            postId, 
+            online, 
+            token, 
+            url, 
+            data;
         
-        token = $(this).parent('tr').find('input[name=_token]').val();
-        postId = $(this).parent('tr').data('id');
-        online = $(this).parent('tr').find('.post-online').data('online');
+        token   = $(this).parent('tr').find('input[name=_token]').val();
+        postId  = $(this).parent('tr').data('id');
+        online  = $(this).parent('tr').find('.post-online').data('online');
         
         url = '/admin/ajax/update_post_online';
         data = {
@@ -69,7 +79,7 @@ $(document).ready(function(){
                     success: function (resp) {
                         $("#modal-post-confirm").closeModal();
                         Materialize.toast(resp.data.message, 4000, '', function(){
-                            location.reload();
+                            toggleVisibility($btn);
                         });
                     }
                 });
@@ -78,6 +88,18 @@ $(document).ready(function(){
             }
         });
     });
+
+    function toggleVisibility(visibility) {
+        var isVisible = (visibility.hasClass('green-text')) ? true : false;
+
+        console.log(isVisible);
+
+        if(isVisible) {
+            visibility.find('i').removeClass('green-text').addClass('red-text').text('visibility_off');
+        } else {
+            visibility.find('i').removeClass('red-text').addClass('green-text').text('visibility');
+        }
+    };
 
     /*** Post delete ***/
     $(document).on('click', '.post-delete', function(e){

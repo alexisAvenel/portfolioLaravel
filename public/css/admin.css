@@ -1,11 +1,11 @@
 @media only screen and (min-width: 0) {
   html {
-      font-size: 14px;
+    font-size: 14px;
   }
 }
 
 header, main, footer {
-    padding-left: 240px;
+  padding-left: 240px;
 }
 
 @media only screen and (max-width: 992px) {
@@ -16,6 +16,11 @@ header, main, footer {
 
 body {
   background : #fff;
+}
+
+main {
+  -webkit-perspective: none;
+  perspective: none;
 }
 
 a.button-collapse.top-nav {
