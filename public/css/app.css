@@ -149,9 +149,9 @@ blockquote, .blockquote {
 .twitter:hover, .linkedin:hover {
   border-style:dotted;
   -webkit-transform: rotate(360deg);
-   -moz-transform: rotate(360deg); 
+   -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
-     -o-transform: rotate(360deg); 
+     -o-transform: rotate(360deg);
         transform: rotate(360deg);
 }
 /*** END ICONS ***/
@@ -319,7 +319,7 @@ nav {
 }
 
 .slide, .slide:before {
-  background: 50% 50% / cover;  
+  background: 50% 50% / cover;
 }
 
 .slide.shadow {
@@ -327,7 +327,7 @@ nav {
 }
 
 #parallax1 {
-  background-image: url('../images/img2.jpg');
+  background-image: url('../images/img3.jpg');
   background-attachment: fixed;
 }
 
@@ -360,10 +360,16 @@ nav {
   z-index:-1;
 }
 
+#parallax2 {
+  background-color: #212121;
+}
+
 #parallax2 #skills-chart {
   position: relative;
   margin: auto;
   display: block;
+  width: 500px;
+  height: 500px;
 }
 
 #parallax3 {
@@ -406,24 +412,33 @@ nav {
 .opacity-box .first,
 .opacity-box .second {
   font-size: 3rem;
-  line-height: 60px;
+  line-height: 90px;
   font-weight: lighter;
 }
 
 .opacity-box .second.t {
   font-size: 0.8rem;
-  width: 400px;
-  line-height: 100px;
+  width: 100%;
+  height: 100%;
 }
 
 .opacity-box .second.t .tr {
   width: 100%;
-  line-height: 40px;
 }
 
 .opacity-box .second.t .tc {
-  width: 50%;
-  padding: 0 0 0 5px;
+  width: 25%;
+}
+
+.opacity-box .second.t .tc i {
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    margin: auto;
+    margin-top: 25%;
 }
 
 @media only screen and (max-width: 992px) {
@@ -443,7 +458,7 @@ nav {
 .opacity-box .first > span{
   text-transform: lowercase;
   color: #37474F;
-  font-size: 6rem;
+  font-size: 4rem;
   text-shadow: 0px 6px 0px rgba(0, 0, 0, 0.6), 0px 8px 0px #FFC107;
 }
 
@@ -533,10 +548,10 @@ footer.page-footer {
   transition: background 250ms ease;
 }
 .cube:hover .default-state {
-  background: #37474f;
+  background: #212121;
 }
 .active-state {
-  background: #37474f;
+  background: #212121;
 }
 #flipto {
   display: block;

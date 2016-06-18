@@ -55,8 +55,8 @@
                     <div class="col l3 s12">
                         <h5 class="white-text">Connect</h5>
                         <ul>
-                            <li><a class="white-text" href="#!">Link 1</a></li>
-                            <li><a class="white-text" href="#!">Link 2</a></li>
+                            <li><a href="#!" class="twitter icons" title="Twitter Alexis Avenel" target="_blank"></a></li>
+                            <li><a href="#!" class="linkedin icons" title="Linkedin Alexis Avenel" target="_blank"></a></li>
                             <li><a class="white-text" href="#!">Link 3</a></li>
                             <li><a class="white-text" href="#!">Link 4</a></li>
                         </ul>
@@ -74,5 +74,6 @@
     <script type="text/javascript" src="<?php echo asset('js/materialize.min.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('js/chart-js/Chart.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('js/init.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo asset('js/public.custom.js'); ?>"></script>
     </body>
 </html>

@@ -14,24 +14,26 @@
                     <div id="flip-button" class="center">
                         <div class="cube flip-to-top btn-large rounded amber z-depth-2">
                             <div class="default-state">
-                                <span class="first">Mon <span>e<sub>-</sub></span> CV</span>
+                                <span class="first">Me contacter <span>!</span></span>
                             </div>
                             <div class="active-state">
                                 <span class="second t">
+
                                     <div class="tr">
-                                        <span class="tc"><i class="material-icons">location_city</i> <span>Rouen (76)</span></span>
-                                        <span class="tc"><i class="material-icons">email</i> <span>avenel.alexis@sfr.fr</span></span>
-                                    </div>
-                                    <div class="tr">
-                                        <span class="tc"><i class="material-icons">access_time</i> <span>12/1991</span></span>
-                                        <span class="tc center">
-                                            <a href="#!" class="twitter icons" title="Twitter Alexis Avenel" target="_blank"></a> 
-                                            <span style="width:30px;display: inline-block;"></span>
-                                            <a href="#!" class="linkedin icons" title="Linkedin Alexis Avenel" target="_blank"></a>
+                                        <span class="tc tooltipped" data-position="left" data-tooltip="Rouen (76)">
+                                            <i class="material-icons">room</i>
+                                        </span>
+                                        <span class="tc tooltipped" data-position="top" data-tooltip="avenel.alexis@sfr.fr">
+                                            <i class="material-icons">email</i>
+                                        </span>
+                                        <span class="tc tooltipped" data-position="bottom" data-tooltip="{{$birthday}}ans">
+                                            <i class="material-icons">cake</i>
+                                        </span>
+                                        <span class="tc tooltipped" data-position="right" data-tooltip="Interaction Healthcare">
+                                            <i class="material-icons">business</i>
                                         </span>
                                     </div>
 
-                                    </table>
                                 </span>
                             </div>
                         </div>
@@ -48,7 +50,7 @@
 </div>
 
 
-<div id="parallax2" class="slide blue-grey darken-3 flow-text shadow">
+<div id="parallax2" class="slide flow-text shadow">
     <div id="competences" class="col s12 section scrollspy">
 
         <div class="valign-wrapper">
@@ -81,7 +83,7 @@
                     <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
                     <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
                 </li>
-            </ul>            
+            </ul>
         </div>
 
     </div>
