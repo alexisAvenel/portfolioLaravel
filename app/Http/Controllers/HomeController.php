@@ -32,6 +32,6 @@ class HomeController extends Controller
         $now = time();
         $years = $now - $birthday_date;
 
-        return round($years/31536000);
+        return floor($years/31536000);
     }
 }

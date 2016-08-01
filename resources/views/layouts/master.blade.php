@@ -9,6 +9,8 @@
     <link href="http://fonts.googleapis.com/icon?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css">
     <link type="text/css" rel="stylesheet" href="<?php echo asset('css/materialize.css'); ?>" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="<?php echo asset('css/progress-bar/component.css'); ?>"/>
+    <link type="text/css" rel="stylesheet" href="<?php echo asset('css/progress-bar/custom-bars.css'); ?>"/>
     <link type="text/css" rel="stylesheet" href="<?php echo asset('css/app.css'); ?>"/>
 
     <script type="text/javascript" src="<?php echo asset('js/jquery.min.js'); ?>"></script>
@@ -72,7 +74,6 @@
     </main>
     <!--Scripts-->
     <script type="text/javascript" src="<?php echo asset('js/materialize.min.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('js/chart-js/Chart.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('js/init.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('js/public.custom.js'); ?>"></script>
     </body>

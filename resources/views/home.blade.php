@@ -56,9 +56,53 @@
         <div class="valign-wrapper">
             <h3 class="valign h1-3d">Compétences</h3>
         </div>
-
-        <canvas id="skills-chart" width="500" height="500"></canvas>
-
+        <div class="row">
+            <div class="col s4">
+                <div class="progress-factor">
+                    <div class="progress-bar">
+                        <div class="bar has-rotation has-colors yellow move" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+                            <div class="tooltip white"><span>PHP</span></div>
+                            <div class="bar-face face-position roof percentage"></div>
+                            <div class="bar-face face-position back percentage"></div>
+                            <div class="bar-face face-position floor percentage volume-lights"></div>
+                            <div class="bar-face face-position left"></div>
+                            <div class="bar-face face-position right"></div>
+                            <div class="bar-face face-position front percentage volume-lights shine"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="progress-factor">
+                    <div class="progress-bar">
+                        <div class="bar has-rotation has-colors yellow move" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+                            <div class="tooltip white"><span>JS</span></div>
+                            <div class="bar-face face-position roof percentage"></div>
+                            <div class="bar-face face-position back percentage"></div>
+                            <div class="bar-face face-position floor percentage volume-lights"></div>
+                            <div class="bar-face face-position left"></div>
+                            <div class="bar-face face-position right"></div>
+                            <div class="bar-face face-position front percentage volume-lights shine"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="progress-factor">
+                    <div class="progress-bar">
+                        <div class="bar has-rotation has-colors yellow move" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+                            <div class="tooltip white"><span>Wordpress</span></div>
+                            <div class="bar-face face-position roof percentage"></div>
+                            <div class="bar-face face-position back percentage"></div>
+                            <div class="bar-face face-position floor percentage volume-lights"></div>
+                            <div class="bar-face face-position left"></div>
+                            <div class="bar-face face-position right"></div>
+                            <div class="bar-face face-position front percentage volume-lights shine"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
     </div>
 </div>
 

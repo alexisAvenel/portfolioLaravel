@@ -323,7 +323,7 @@ nav {
 }
 
 .slide.shadow {
-  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, .7), 0px -5px 5px 0px rgba(0, 0, 0, .7);
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, .3), 0px -5px 5px 0px rgba(0, 0, 0, .3);
 }
 
 #parallax1 {
@@ -361,7 +361,7 @@ nav {
 }
 
 #parallax2 {
-  background-color: #212121;
+  background-color: #FF7043;
 }
 
 #parallax2 #skills-chart {
@@ -370,6 +370,27 @@ nav {
   display: block;
   width: 500px;
   height: 500px;
+}
+
+#parallax2 .progress-factor {
+  font-size: 3em;
+  position: relative;
+}
+
+#parallax2 .bar.yellow {
+  background-color: rgba(255,255,255,.8) !important;
+}
+
+#parallax2 .bar .percentage:before {
+  background-color: rgba(255, 193, 7, 0.5);
+}
+
+#parallax2 .bar .volume-lights.shine:before {
+  box-shadow: 0 1.6em 3em rgba(241, 196, 15, 0.25);
+}
+
+#parallax2 .bar .tooltip > span {
+  font-size: 0.2em;
 }
 
 #parallax3 {
@@ -390,7 +411,6 @@ nav {
   line-height: 100%;
   font-weight: lighter;
   color: #FFF;
-  text-shadow: 0px 6px 0px #000, 0px 8px 0px #FFC107;
 }
 
 .opacity-box #flip-button {
@@ -431,14 +451,14 @@ nav {
 }
 
 .opacity-box .second.t .tc i {
-    border: 2px solid #fff;
-    border-radius: 50%;
-    display: block;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    margin: auto;
-    margin-top: 25%;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: auto;
+  margin-top: 25%;
 }
 
 @media only screen and (max-width: 992px) {
@@ -459,7 +479,6 @@ nav {
   text-transform: lowercase;
   color: #37474F;
   font-size: 4rem;
-  text-shadow: 0px 6px 0px rgba(0, 0, 0, 0.6), 0px 8px 0px #FFC107;
 }
 
 /*** END HOME ***/
