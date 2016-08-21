@@ -28,27 +28,27 @@
                         </div>
                         <div class="col col s8 m8 l8">
                             <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">
-                                <?php echo $user['name']; ?><i class="mdi-navigation-arrow-drop-down right"></i>
+                                <?php echo $user['name']; ?><!--<i class="mdi-navigation-arrow-drop-down right"></i>-->
                             </a>
-                            <ul id="profile-dropdown" class="dropdown-content">
+                            <!--<ul id="profile-dropdown" class="dropdown-content">
                                 <li>
-                                    <a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
+                                    <a href="#"><i class="mdi-action-face-unlock"></i> Profil</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="mdi-action-settings"></i> Settings</a>
+                                    <a href="#"><i class="mdi-action-settings"></i> Paramètres</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="mdi-communication-live-help"></i> Help</a>
+                                    <a href="#"><i class="mdi-communication-live-help"></i> Aide</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
+                                    <a href="#"><i class="mdi-action-lock-outline"></i> Vérouiller</a>
                                 </li>
                                 <li>
-                                    <a href="/auth/logout"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                                    <a href="/auth/logout"><i class="mdi-hardware-keyboard-tab"></i> Déconnexion</a>
                                 </li>
-                            </ul>
-                            <p class="user-roal chip white black-text">Administrator</p>
+                            </ul>-->
+                            <p class="user-roal chip white black-text">Admin</p>
                         </div>
                     </div>
                 </li>
@@ -60,6 +60,7 @@
                 </li>
                 <li class="bold {!! classActiveSegment(2, '') !!}"><a href="/admin" class="waves-effect waves-orange">Dashboard</a></li>
                 <li class="bold {!! classActiveSegment(2, 'news') !!}"><a href="/admin/news" class="waves-effect waves-orange">News</a></li>
+                <li class="bold {!! classActiveSegment(2, 'skills') !!}"><a href="/admin/skills" class="waves-effect waves-orange">Compétences</a></li>
                 <li class="bold {!! classActiveSegment(2, 'contacts') !!}"><a href="/admin/contacts" class="waves-effect waves-orange">Messages</a></li>
                 <li class="bold {!! classActiveSegment(2, 'settings') !!}"><a href="/admin/settings" class="waves-effect waves-orange">Paramètres</a></li>
             </ul>

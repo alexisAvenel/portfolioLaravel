@@ -31,6 +31,7 @@ Route::group(['middleware' => ['web']], function () {
 				->where('id', '[0-9]+');
 
 		Route::resource('news', 'PostsController');
+		Route::resource('skills', 'SkillsController');
 
 		Route::post('/contacts/send/{id}', 'ContactsController@sendMail');
 

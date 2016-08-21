@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Skill;
 
 class HomeController extends Controller
 {
@@ -22,9 +23,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('home', ['birthday' => $this->_getBirthdayYearDate()]);
+    public function index() {
+        $birthday = $this->_getBirthdayYearDate();
+        $skills = Skill::get();
+
+        return view('home', compact('birthday', 'skills'));
     }
 
     private function _getBirthdayYearDate() {

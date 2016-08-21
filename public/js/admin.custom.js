@@ -21,7 +21,7 @@ $(document).ready(function(){
                         ready: function() {
                             name = resp.data.contact.name;
                             name += (resp.data.contact.email.length) ? '<em>('+resp.data.contact.email+')</em>' : '';
-                            
+
                             $('#modal-contact').find('h4').html(name);
                             $('#modal-contact').find('blockquote').html(resp.data.contact.message);
                             $('#modal-contact').find('.modal-sender').removeClass('show').addClass('hide');
@@ -44,17 +44,17 @@ $(document).ready(function(){
 
     /*** Post update online/offline ***/
     $(document).on('click', '.post-online', function(e){
-        var $btn = $(e.currentTarget), 
-            postId, 
-            online, 
-            token, 
-            url, 
+        var $btn = $(e.currentTarget),
+            postId,
+            online,
+            token,
+            url,
             data;
-        
+
         token   = $(this).parent('tr').find('input[name=_token]').val();
         postId  = $(this).parent('tr').data('id');
         online  = $(this).parent('tr').find('.post-online').data('online');
-        
+
         url = '/admin/ajax/update_post_online';
         data = {
             postId: postId,
@@ -104,41 +104,7 @@ $(document).ready(function(){
     /*** Post delete ***/
     $(document).on('click', '.post-delete', function(e){
         e.preventDefault();
-        var postId, token, data;
-        
-        token = $(this).parents('tr').find('input[name=_token]').val();
-        postId = $(this).parents('tr').data('id');
-
-        data = {
-            id: postId
-        };
-
-        $("#modal-post-confirm").openModal({
-            ready: function() {
-                $(document).find('.modal-title').text("Supprimer l'article ?");
-            }
-        });
-
-        $(document).on('click', 'a.modal-action', function(e) {
-            e.preventDefault();
-            if($(this).data('confirm') == 'yes') {
-                $.ajax({
-                    url: '/admin/news/'+postId,
-                    headers: {'X-CSRF-TOKEN': token},
-                    type: 'DELETE',
-                    datatype: 'JSON',
-                    success: function (resp) {
-                        console.log(resp);
-                        $("#modal-post-confirm").closeModal();
-                        Materialize.toast(resp.data.message, 4000, '', function(){
-                            location.reload();
-                        });
-                    }
-                });
-            } else {
-                $("#modal-post-confirm").closeModal();
-            }
-        });
+        modalConfirmDelete($(e.currentTarget), 'post', 'news');
     });
 
     /*** Post edit ***/
@@ -146,9 +112,15 @@ $(document).ready(function(){
         e.preventDefault();
         var value = $(e.currentTarget).val(),
             slug;
-        
+
         slug = convertToSlug(value);
         $('.postForm #slug').val(slug);
+    });
+
+    /*** Skill delete ***/
+    $(document).on('click', '.skill-delete', function(e){
+        e.preventDefault();
+        modalConfirmDelete($(e.currentTarget), 'skill', 'skills');
     });
 
 });
@@ -169,4 +141,42 @@ convertToSlug = function(str) {
     .replace(/-+/g, '-'); // collapse dashes
 
     return str;
+};
+
+modalConfirmDelete = function($btn, entityName, routeName) {
+    var id, token, data, route;
+
+    token   = $btn.parents('tr').find('input[name=_token]').val();
+    id      = $btn.parents('tr').data('id');
+    route   = '/admin/'+routeName+'/'+id;
+
+    data = {
+        id: id
+    };
+
+    $("#modal-"+entityName+"-confirm").openModal({
+        ready: function() {
+            $(document).find('.modal-title').text("Supprimer la compétence ?");
+        }
+    });
+
+    $(document).on('click', 'a.modal-action', function(e) {
+        e.preventDefault();
+        if($(e.currentTarget).data('confirm') == 'yes') {
+            $.ajax({
+                url: route,
+                headers: {'X-CSRF-TOKEN': token},
+                type: 'DELETE',
+                datatype: 'JSON',
+                success: function (resp) {
+                    $("#modal-"+entityName+"-confirm").closeModal();
+                    Materialize.toast(resp.data.message, 4000, '', function(){
+                        location.reload();
+                    });
+                }
+            });
+        } else {
+            $("#modal-"+entityName+"-confirm").closeModal();
+        }
+    });
 };
