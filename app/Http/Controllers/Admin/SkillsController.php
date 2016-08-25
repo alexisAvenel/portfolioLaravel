@@ -41,15 +41,17 @@ class SkillsController extends Controller
      */
     public function store(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
-            'name' => 'required|min:6',
+            'name' => 'required|min:1',
             'value' => 'required',
             'description' => 'max:500'
         ]);
         if($validator->fails()) {
-            return redirect(route('admin.skills.create'))->withErrors($validator->errors());
+            return redirect(route('admin.skills.create'))->withErrors($validator)->withInput();
         } else {
             $skillRequest = $request->all();
+
             if($skillRequest) {
                 $skill = Skill::create($skillRequest);
             }

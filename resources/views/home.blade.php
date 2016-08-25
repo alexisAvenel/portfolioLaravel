@@ -62,7 +62,7 @@
                 <div class="progress-factor">
                     <div class="progress-bar">
                         <div class="bar has-rotation has-colors yellow move" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-value="{{ $skill->value }}">
-                            <div class="tooltip-skill-name white">{{ $skill->name }}</div>
+                            <div class="tooltip-skill-name">{{ $skill->name }}</div>
                             <div class="tooltip white"></div>
                             <div class="bar-face face-position roof percentage"></div>
                             <div class="bar-face face-position back percentage"></div>

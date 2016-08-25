@@ -14,16 +14,6 @@ if($skill->id) {
 $options['class'] = 'col s12 skillForm';
 ?>
 
-@if($errors->any())
-    <ul>
-        @foreach($errors as $type => $error)
-            @foreach($error as $message)
-                <li> {{ $type }} : {{ $message }} </li>
-            @endforeach
-        @endforeach
-    </ul>
-@endif
-
 {!! Form::model($skill, $options) !!}
 
     <div class="row">
@@ -31,11 +21,13 @@ $options['class'] = 'col s12 skillForm';
         {!! Form::label('name', 'Nom') !!}
         {!! Form::text('name') !!}
         </div>
+        <div class="error red-text">{{ $errors->first('name') }}</div>
 
         <div class="input-field col s12">
         {!! Form::label('value', 'Valeur en %') !!}
         {!! Form::input('number', 'value', null, ['step' => '0.01']) !!}
         </div>
+        <div class="error red-text">{{ $errors->first('value') }}</div>
 
         <div class="input-field col s12">
         {!! Form::label('description', 'Description de la compétence') !!}

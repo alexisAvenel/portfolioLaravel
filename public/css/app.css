@@ -361,7 +361,7 @@ nav {
 }
 
 #parallax2 {
-  background-color: #FF7043;
+  background-color: #ecf0f1;
 }
 
 #parallax2 #skills-chart {
@@ -395,19 +395,16 @@ nav {
 }
 
 #parallax2 .bar .tooltip-skill-name {
-  font-size: .65em;
-  font-weight: bold;
-  margin: 1.85em 0 0 -.5em;
+  font-size: 28px;
   display: inline-block;
   position: absolute;
-  line-height: 1em;
-  height: 1em;
-  width: 1em;
+  line-height: 1.5em;
+  height: 1.5em;
+  width: 100%;
   left: 0;
-  background-color: #ff6db3;
-  color: #fefefe;
-  border-bottom: 1px solid #ff53a5;
-  box-shadow: 0 0.05em 0.1em -0.02em rgba(0, 0, 0, 0.4), 0 0.1em 0.6em rgba(0, 0, 0, 0.3);
+  top: 25%;
+  color: #000;
+  z-index: 999;
   transition: all 0.5s ease-out;
 }
 
@@ -418,17 +415,6 @@ nav {
   left: 0;
   top: 0;
   width: 100%;
-}
-
-#parallax2 .bar .tooltip-skill-name:after {
-  content: '';
-  height: 0;
-  width: 0;
-  margin: -.75em 0 0 1em;
-  border: 1em solid transparent;
-  border-bottom-color: #ff6db3;
-  border-top-width: 0;
-  transition: all 0.5s ease-out;
 }
 
 #parallax2 .bar .tooltip-skill-name:before {
