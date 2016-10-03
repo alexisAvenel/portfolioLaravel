@@ -23,15 +23,15 @@
                                         <span class="tc tooltipped" data-position="left" data-tooltip="Rouen (76)">
                                             <i class="material-icons">room</i>
                                         </span>
-                                        <span class="tc tooltipped" data-position="top" data-tooltip="avenel.alexis@sfr.fr">
+                                        <a href="/contact" class="tc tooltipped" data-position="top" data-tooltip="avenel.alexis@sfr.fr">
                                             <i class="material-icons">email</i>
-                                        </span>
+                                        </a>
                                         <span class="tc tooltipped" data-position="bottom" data-tooltip="{{$birthday}}ans">
                                             <i class="material-icons">cake</i>
                                         </span>
-                                        <span class="tc tooltipped" data-position="right" data-tooltip="Interaction Healthcare">
+                                        <a href="http://www.interaction-healthcare.com" target="_blank" class="tc tooltipped" data-position="right" data-tooltip="Interaction Healthcare">
                                             <i class="material-icons">business</i>
-                                        </span>
+                                        </a>
                                     </div>
 
                                 </span>
@@ -50,11 +50,11 @@
 </div>
 
 
-<div id="parallax2" class="slide flow-text shadow">
+<div id="parallax2" class="slide flow-text">
     <div id="competences" class="col s12 section scrollspy">
 
         <div class="valign-wrapper">
-            <h3 class="valign h1-3d">Compétences</h3>
+            <h3 class="valign">Compétences</h3>
         </div>
         <div class="row">
             @foreach($skills as $skill)
@@ -83,7 +83,7 @@
     <div id="experiences" class="section no-pad-bot">
 
         <div class="valign-wrapper">
-            <h3 class="valign h1-3d">Expériences</h3>
+            <h3 class="valign">Expériences</h3>
         </div>
 
         <div class="col s12 container">

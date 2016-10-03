@@ -17,7 +17,7 @@
     <script type="text/javascript" src="<?php echo asset('js/recaptcha.js'); ?>"></script>
 </head>
 <body>
-    <nav id="navigation" class="grey darken-4 z-depth-0" role="navigation">
+    <nav id="navigation" class="z-depth-0" role="navigation">
         <div class="nav-wrapper container">
             <a href="/" id="logo-container" class="brand-logo" title="Alexis Avenel"><img src="<?php echo asset('images/logo-dark.png'); ?>" class="responsive-img"></a>
             <ul class="right hide-on-med-and-down">
