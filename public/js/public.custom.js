@@ -8,11 +8,18 @@ $(document).ready(function() {
             selector: '#parallax2',
             offset: 600,
             callback: function() {
-                $('.progress-factor').each(function(i, progress) {
-                    var value = $(progress).find('.bar').data('value');
-                    $(progress).fadeIn(1200, function(){
-                        $(progress).find('.bar').attr('aria-valuenow', value);
+                $('.skill_bar').each(function(i, bar) {
+                    var value = $(bar).find('.skill_active').data('value');
+                    $(bar).find('.skill_active').width(value);
+
+                    $({someValue: 0}).animate({someValue: value}, {
+                        duration: 2000,
+                        easing:'swing',
+                        step: function() {
+                            $(bar).find('span i').text(Math.round(this.someValue));
+                        }
                     });
+
                 });
             }
         }

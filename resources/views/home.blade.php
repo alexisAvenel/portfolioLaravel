@@ -56,25 +56,33 @@
         <div class="valign-wrapper">
             <h3 class="valign">Compétences</h3>
         </div>
+
         <div class="row">
-            @foreach($skills as $skill)
-            <div class="col s4">
-                <div class="progress-factor">
-                    <div class="progress-bar">
-                        <div class="bar has-rotation has-colors yellow move" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-value="{{ $skill->value }}">
-                            <div class="tooltip-skill-name">{{ $skill->name }}</div>
-                            <div class="tooltip white"></div>
-                            <div class="bar-face face-position roof percentage"></div>
-                            <div class="bar-face face-position back percentage"></div>
-                            <div class="bar-face face-position floor percentage volume-lights"></div>
-                            <div class="bar-face face-position left"></div>
-                            <div class="bar-face face-position right"></div>
-                            <div class="bar-face face-position front percentage volume-lights shine"></div>
+            <div class="col s6 offset-s1">
+                <ul>
+
+                @foreach($skills as $skill)
+
+                    <li class="skill">
+                        <span class="skill_name">
+                            <strong>
+                                {{ $skill->name }} @if($skill->description) ({{ $skill->description }})@endif
+                            </strong>
+                        </span>
+                        <div class="skill_bar">
+                            <div class="skill_active" data-value="{{ $skill->value }}%"></div>
+                            <span><i>0</i><em>%</em></span>
                         </div>
-                    </div>
-                </div>
+                    </li>
+
+                @endforeach
+
+                </ul>
             </div>
-            @endforeach
+
+            <div class="col s4 offset-1">
+                <img src="<?php echo asset('images/skills.jpg'); ?>" class="responsive-img valign">
+            </div>
         </div>
     </div>
 </div>

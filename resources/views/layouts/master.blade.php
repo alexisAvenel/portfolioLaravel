@@ -8,6 +8,7 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="http://fonts.googleapis.com/icon?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
     <link type="text/css" rel="stylesheet" href="<?php echo asset('css/materialize.css'); ?>" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="<?php echo asset('css/progress-bar/component.css'); ?>"/>
     <link type="text/css" rel="stylesheet" href="<?php echo asset('css/progress-bar/custom-bars.css'); ?>"/>
