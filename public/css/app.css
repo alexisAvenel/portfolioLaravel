@@ -311,6 +311,7 @@ nav {
     box-sizing: border-box;
     transform-style: inherit;
     color: rgba(255, 255, 255, 0.9);
+    overflow: hidden;
 }
 
 .slide:before {
@@ -351,11 +352,11 @@ nav {
 }
 #parallax1 #scrollspy {
     position: absolute;
-    margin: auto;
+    height: 150px;
+    margin: 0;
     padding: 0;
-    top: 60%;
     left: 0;
-    bottom: 0;
+    bottom: 20px;
     right: 0;
     transition: all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;
@@ -432,7 +433,7 @@ nav {
 
 #parallax3 {
     position: inherit;
-    background-image: url('../images/gallery/default.jpg');
+    background-image: url('../images/bg5.jpg');
     background-attachment: fixed;
     color: #000;
 }
@@ -479,12 +480,24 @@ nav {
     box-shadow: 0px 0px 3px #fff, 0px 0px 3px #fff inset;
 }
 
+#user-infos {
+    margin: 40px 0;
+}
+
+#competences img.responsive-img {
+    position: absolute;
+    bottom: 0;
+}
+
 @media only screen and (max-width: 600px) {
     .opacity-box .user-infos i {
         margin: 10px 0;
     }
     #user-infos {
         margin: 10px 0;
+    }
+    #user-infos .block-user {
+        margin: 5px 0;
     }
     .opacity-box .user-infos p {
         display: block;

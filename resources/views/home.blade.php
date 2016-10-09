@@ -5,36 +5,40 @@
     <div class="section no-pad-bot">
         <div class="container">
 
-            <div class="col s12">
-                <div class="opacity-box z-depth-5">
+            <div class="row">
+
+                <div class="opacity-box z-depth-5 col s12">
+
                     <div class="row">
-                        <div class="col s12 center">
+
+                        <div class="col l12 m12 s12">
                             <h1 class="header center amber-text">Alexis Avenel</h1>
                         </div>
-                        <div class="col s12 center">
-                            <h5 class="col s12 light">Développeur Web <span>&</span> Mobile <br/> <i class="lighter">[ Front </i><span>&</span> <i class="lighter">Back ]</i></h5>
+                        <div class="col l12 m12 s12">
+                            <h5 class="light center">Développeur Web <span>&</span> Mobile</h5>
+                            <h5 class="light center"><i class="lighter">[ Front </i><span>&</span> <i class="lighter">Back ]</i></h5>
                         </div>
-                        <div class="col s12 center" id="user-infos">
+                        <div id="user-infos" class="col l12 m12 s12 center">
                             <div class="row">
-                                <div class="col l1 offset-l4 m3 s6">
+                                <div class="col l1 offset-l4 m3 s6 block-user">
                                     <span class="user-infos tooltipped" data-position="left" data-tooltip="Rouen (76)">
                                         <i class="material-icons">room</i>
                                         <p>Rouen (76)</p>
                                     </span>
                                 </div>
-                                <div class="col l1 m3 s6">
+                                <div class="col l1 m3 s6 block-user">
                                     <a href="/contact" class="user-infos tooltipped" data-position="top" data-tooltip="avenel.alexis@sfr.fr">
                                         <i class="material-icons">email</i>
                                         <p>avenel.alexis@sfr.fr</p>
                                     </a>
                                 </div>
-                                <div class="col l1 m3 s6">
+                                <div class="col l1 m3 s6 block-user">
                                     <span class="user-infos tooltipped" data-position="bottom" data-tooltip="{{$birthday}}ans">
                                         <i class="material-icons">cake</i>
                                         <p>{{$birthday}}ans</p>
                                     </span>
                                 </div>
-                                <div class="col l1 m3 s6">
+                                <div class="col l1 m3 s6 block-user">
                                     <a href="http://www.interaction-healthcare.com" target="_blank" class="user-infos tooltipped" data-position="right" data-tooltip="Interaction Healthcare">
                                         <i class="material-icons">business</i>
                                         <p>Interaction Healthcare</p>
@@ -42,12 +46,15 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <div id="scrollspy" class="col s12 center ">
-                <a href="#competences" class="arrow amber-text"><i class="large material-icons">keyboard_arrow_down</i></a>
+                    </div>
+
+                </div>
+
+
+                <div id="scrollspy" class="col s12 center ">
+                    <a href="#competences" class="arrow amber-text"><i class="large material-icons">keyboard_arrow_down</i></a>
+                </div>
             </div>
 
         </div>
@@ -86,7 +93,7 @@
             </div>
 
             <div class="col s4 offset-1">
-                <img src="<?php echo asset('images/skills.jpg'); ?>" class="responsive-img valign">
+                <img src="<?php echo asset('images/skills.png'); ?>" class="responsive-img valign">
             </div>
         </div>
     </div>

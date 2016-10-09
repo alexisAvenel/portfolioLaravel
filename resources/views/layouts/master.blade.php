@@ -36,7 +36,6 @@
     <main>
         @yield('home-banner')
 
-
         @yield('content')
 
         <footer class="page-footer grey darken-4">
