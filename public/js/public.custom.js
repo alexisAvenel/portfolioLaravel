@@ -6,7 +6,7 @@ $(document).ready(function() {
     var options = [
         {
             selector: '#parallax2',
-            offset: 600,
+            offset: 550,
             callback: function() {
                 $('.skill_bar').each(function(i, bar) {
                     var value = $(bar).find('.skill_active').data('value');

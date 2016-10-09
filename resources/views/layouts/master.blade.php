@@ -15,7 +15,7 @@
     <link type="text/css" rel="stylesheet" href="<?php echo asset('css/app.css'); ?>"/>
 
     <script type="text/javascript" src="<?php echo asset('js/jquery.min.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('js/recaptcha.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo asset('https://www.google.com/recaptcha/api.js'); ?>"></script>
 </head>
 <body>
     <nav id="navigation" class="z-depth-0" role="navigation">

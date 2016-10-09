@@ -66,9 +66,20 @@ blockquote, .blockquote {
     padding: 0;
 }
 
+.icon-title-mobile {
+    display: none;
+}
+
 @media only screen and (max-width: 992px) {
     .btn-large.rounded{
         width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .icon-title-mobile {
+        display: inline-block;
+        color: #FFC107;
     }
 }
 
@@ -94,7 +105,7 @@ blockquote, .blockquote {
     display: table-cell;
 }
 
-@media only screen and (min-width : 992px) {
+@media only screen and (min-width : 300px) {
     @keyframes animateArrow {
         0% {
             top: 45%;
@@ -154,6 +165,9 @@ blockquote, .blockquote {
     }
     .side-nav li {
         padding: 0;
+    }
+    nav a.button-collapse {
+        color: #333;
     }
 }
 
@@ -425,21 +439,15 @@ nav {
 
 .opacity-box {
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 5%;
     border-radius: 2px;
+    min-height: 400px;
 }
 
 .opacity-box .header {
-    font-size: 6em;
+    font-size: 10vw;
     line-height: 100%;
     font-weight: lighter;
     color: #FFF;
-}
-
-.opacity-box #flip-button {
-    margin: 5%;
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
 }
 
 .opacity-box h5.light {
@@ -447,59 +455,60 @@ nav {
     font-weight: 800;
 }
 
+.opacity-box h5.light .lighter {
+    font-weight: 100;
+}
+
 .opacity-box h5.light span {
     font-weight: 300;
     color: #FFC107;
 }
 
-.opacity-box .first,
-.opacity-box .second {
-    font-size: 3rem;
-    line-height: 90px;
-    font-weight: lighter;
+.opacity-box .user-infos p {
+    display: none;
 }
 
-.opacity-box .second.t {
-    font-size: 0.8rem;
-    width: 100%;
-    height: 100%;
+.opacity-box .user-infos > i {
+    padding: 10px;
+    display: inline-block;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    -moz-box-shadow: 0px 0px 3px #fff, 0px 0px 3px #fff inset;
+    -webkit-box-shadow: 0px 0px 3px #fff, 0px 0px 3px #fff inset;
+    box-shadow: 0px 0px 3px #fff, 0px 0px 3px #fff inset;
 }
 
-.opacity-box .second.t .tr {
-    width: 100%;
+@media only screen and (max-width: 600px) {
+    .opacity-box .user-infos i {
+        margin: 10px 0;
+    }
+    #user-infos {
+        margin: 10px 0;
+    }
+    .opacity-box .user-infos p {
+        display: block;
+        vertical-align: super;
+        text-align: center;
+        margin: 0;
+    }
+    .material-tooltip {
+        display: none !important;
+    }
+    #parallax2 #competences .skill_name strong {
+        font-size: 12px;
+    }
+    #competences img {
+        display: none;
+    }
 }
 
-.opacity-box .second.t .tc {
-    width: 25%;
-}
-
-.opacity-box .second.t .tc i {
-    border: 2px solid #fff;
-    border-radius: 50%;
-    display: block;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    margin: auto;
-    margin-top: 25%;
-}
-
-.opacity-box .second.t .tc > span {
-    vertical-align: super;
-}
-
-.opacity-box .second.t a.tc {
+.opacity-box a.user-infos {
     color: #fff;
 }
 
-.opacity-box .second.t a.tc:hover {
+.opacity-box a.user-infos:hover {
     color: #FFC107;
-}
-
-.opacity-box .first > span{
-    text-transform: lowercase;
-    color: #37474F;
-    font-size: 4rem;
 }
 
 /*** END HOME ***/

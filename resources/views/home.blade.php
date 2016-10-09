@@ -7,41 +7,46 @@
 
             <div class="col s12">
                 <div class="opacity-box z-depth-5">
-                    <h1 class="header center amber-text">Alexis Avenel</h1>
-                    <div class="center">
-                        <h5 class="col s12 light">Développeur Web <span>&</span> Mobile <br/> [ Front <span>&</span> Back ]</h5>
-                    </div>
-                    <div id="flip-button" class="center">
-                        <div class="cube flip-to-top btn-large rounded amber z-depth-2">
-                            <div class="default-state">
-                                <span class="first">Me contacter <span>!</span></span>
-                            </div>
-                            <div class="active-state">
-                                <span class="second t">
-
-                                    <div class="tr">
-                                        <span class="tc tooltipped" data-position="left" data-tooltip="Rouen (76)">
-                                            <i class="material-icons">room</i>
-                                        </span>
-                                        <a href="/contact" class="tc tooltipped" data-position="top" data-tooltip="avenel.alexis@sfr.fr">
-                                            <i class="material-icons">email</i>
-                                        </a>
-                                        <span class="tc tooltipped" data-position="bottom" data-tooltip="{{$birthday}}ans">
-                                            <i class="material-icons">cake</i>
-                                        </span>
-                                        <a href="http://www.interaction-healthcare.com" target="_blank" class="tc tooltipped" data-position="right" data-tooltip="Interaction Healthcare">
-                                            <i class="material-icons">business</i>
-                                        </a>
-                                    </div>
-
-                                </span>
+                    <div class="row">
+                        <div class="col s12 center">
+                            <h1 class="header center amber-text">Alexis Avenel</h1>
+                        </div>
+                        <div class="col s12 center">
+                            <h5 class="col s12 light">Développeur Web <span>&</span> Mobile <br/> <i class="lighter">[ Front </i><span>&</span> <i class="lighter">Back ]</i></h5>
+                        </div>
+                        <div class="col s12 center" id="user-infos">
+                            <div class="row">
+                                <div class="col l1 offset-l4 m3 s6">
+                                    <span class="user-infos tooltipped" data-position="left" data-tooltip="Rouen (76)">
+                                        <i class="material-icons">room</i>
+                                        <p>Rouen (76)</p>
+                                    </span>
+                                </div>
+                                <div class="col l1 m3 s6">
+                                    <a href="/contact" class="user-infos tooltipped" data-position="top" data-tooltip="avenel.alexis@sfr.fr">
+                                        <i class="material-icons">email</i>
+                                        <p>avenel.alexis@sfr.fr</p>
+                                    </a>
+                                </div>
+                                <div class="col l1 m3 s6">
+                                    <span class="user-infos tooltipped" data-position="bottom" data-tooltip="{{$birthday}}ans">
+                                        <i class="material-icons">cake</i>
+                                        <p>{{$birthday}}ans</p>
+                                    </span>
+                                </div>
+                                <div class="col l1 m3 s6">
+                                    <a href="http://www.interaction-healthcare.com" target="_blank" class="user-infos tooltipped" data-position="right" data-tooltip="Interaction Healthcare">
+                                        <i class="material-icons">business</i>
+                                        <p>Interaction Healthcare</p>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="scrollspy" class="col s12 center hide-on-med-and-down">
+            <div id="scrollspy" class="col s12 center ">
                 <a href="#competences" class="arrow amber-text"><i class="large material-icons">keyboard_arrow_down</i></a>
             </div>
 
@@ -54,11 +59,11 @@
     <div id="competences" class="col s12 section scrollspy">
 
         <div class="valign-wrapper">
-            <h3 class="valign">Compétences</h3>
+            <h3 class="valign"><i class="material-icons icon-title-mobile">equalizer</i> Compétences</h3>
         </div>
 
         <div class="row">
-            <div class="col s6 offset-s1">
+            <div class="col l6 offset-l1 s11">
                 <ul>
 
                 @foreach($skills as $skill)
