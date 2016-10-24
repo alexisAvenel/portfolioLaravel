@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
     <title>App Name - @yield('title')</title>
     <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/icon?family=Roboto" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Fira+Sans:400,400italic" rel="stylesheet" type="text/css">
     <link type="text/css" rel="stylesheet" href="<?php echo asset('css/materialize.css'); ?>" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="<?php echo asset('css/progress-bar/component.css'); ?>"/>
     <link type="text/css" rel="stylesheet" href="<?php echo asset('css/progress-bar/custom-bars.css'); ?>"/>
+    <link type="text/css" rel="stylesheet" href="<?php echo asset('css/timeline.css'); ?>"/>
     <link type="text/css" rel="stylesheet" href="<?php echo asset('css/app.css'); ?>"/>
 
     <script type="text/javascript" src="<?php echo asset('js/jquery.min.js'); ?>"></script>
@@ -73,7 +74,9 @@
         </footer>
     </main>
     <!--Scripts-->
+    <script type="text/javascript" src="<?php echo asset('js/jquery.mobile.custom.min.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('js/materialize.min.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo asset('js/timeline.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('js/init.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('js/public.custom.js'); ?>"></script>
     </body>

@@ -5,19 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Skill;
+use App\Experience;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -26,8 +17,9 @@ class HomeController extends Controller
     public function index() {
         $birthday = $this->_getBirthdayYearDate();
         $skills = Skill::get();
+        $experiences = Experience::get();
 
-        return view('home', compact('birthday', 'skills'));
+        return view('home', compact('birthday', 'skills', 'experiences'));
     }
 
     private function _getBirthdayYearDate() {

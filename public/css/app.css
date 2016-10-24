@@ -26,10 +26,6 @@ main {
     perspective: 1px;
 }
 
-.indieFlower {
-    font-family: 'Indie Flower', cursive;
-}
-
 h1, h2, h3, h4, h5, h6 {
     -webkit-font-smoothing: antialiased;
 }
@@ -38,6 +34,25 @@ h1 {
     font-size: 4.2rem;
     line-height: 110%;
     margin: 2.1rem 0 1.68rem 0;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 blockquote, .blockquote {
