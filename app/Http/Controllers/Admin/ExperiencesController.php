@@ -14,6 +14,7 @@ use Validator;
 class ExperiencesController extends Controller
 {
 
+
     /**
      * Display a listing of the resource.
      *
@@ -45,6 +46,8 @@ class ExperiencesController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
+
         $validator = Validator::make($request->all(), [
             'start_date' => 'required',
             'end_date' => 'required',
@@ -52,11 +55,17 @@ class ExperiencesController extends Controller
             'society' => 'required',
             'link' => 'required'
         ]);
+
         if($validator->fails()) {
-            return redirect(route('admin.experiences.create'))->withErrors($validator->errors());
+            return redirect(route('admin.experiences.create'))
+                        ->withErrors($validator, 'experience')
+                        ->withInput();
         } else {
             if(!empty($request->all())) {
-                $experience = Experience::create($request->all());
+                $data = $request->all();
+                $data['start_date'] = $data['start_date_submit'];
+                $data['end_date'] = $data['end_date_submit'];
+                $experience = Experience::create($data);
             }
             return redirect(route('admin.experiences.index'));
         }

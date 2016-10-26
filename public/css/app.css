@@ -399,6 +399,7 @@ nav {
     margin: 0;
     padding: 0;
     position: relative;
+    z-index: 1200;
 }
 #parallax2 #competences .skill {
     margin-top: 20px;
@@ -502,6 +503,10 @@ nav {
 #competences img.responsive-img {
     position: absolute;
     bottom: 0;
+    filter: grayscale(0.6);
+    height: 400px;
+    left: 25%;
+    z-index: 1000;
 }
 
 @media only screen and (max-width: 600px) {

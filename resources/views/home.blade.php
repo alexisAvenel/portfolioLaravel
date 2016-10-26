@@ -93,7 +93,7 @@
             </div>
 
             <div class="col s4 offset-1">
-                <img src="<?php echo asset('images/skills.png'); ?>" class="responsive-img valign">
+                <img src="<?php echo asset('images/skills2.png'); ?>" class="responsive-img valign">
             </div>
         </div>
     </div>

@@ -14,37 +14,37 @@ if($experience->id) {
 $options['class'] = 'col s12 experienceForm';
 ?>
 
-@if($errors->any())
-	<ul>
-		@foreach($errors as $type => $error)
-			@foreach($error as $message)
-				<li> {{ $type }} : {{ $message }} </li>
-			@endforeach
-		@endforeach
-	</ul>
-@endif
-
 {!! Form::model($experience, $options) !!}
 
 	<div class="row">
 		<div class="input-field col s12">
 		{!! Form::label('start_date', 'Date de début') !!}
-		{!! Form::date('start_date', null, ['class' => 'datepicker']) !!}
+		{!! Form::date('start_date', null, ['class' => 'datepicker', 'required']) !!}
 		</div>
 
 		<div class="input-field col s12">
 		{!! Form::label('end_date', 'Date de fin') !!}
-		{!! Form::date('end_date', null, ['class' => 'datepicker']) !!}
+		{!! Form::date('end_date', null, ['class' => 'datepicker', 'required']) !!}
 		</div>
 
 		<div class="input-field col s12">
-		{!! Form::label('slug', ' ') !!}
-		{!! Form::text('slug', null, ['disabled' => true]) !!}
+		{!! Form::label('job', 'Job/étude') !!}
+		{!! Form::text('job', null, ['required']) !!}
 		</div>
 
 		<div class="input-field col s12">
-		{!! Form::label('resumed', 'Résumé de l\'article') !!}
-		{!! Form::textarea('resumed', null, ['class' => 'materialize-textarea', 'length' => '100']) !!}
+		{!! Form::label('society', 'Société/école') !!}
+		{!! Form::text('society', null, ['required']) !!}
+		</div>
+
+		<div class="input-field col s12">
+		{!! Form::label('link', 'Lien') !!}
+		{!! Form::text('link', null, ['required']) !!}
+		</div>
+
+		<div class="input-field col s12">
+		{!! Form::label('description', 'Description') !!}
+		{!! Form::textarea('description', null, ['class' => 'materialize-textarea', 'length' => '100']) !!}
 		</div>
 
 		<div class="row">
