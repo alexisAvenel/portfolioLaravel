@@ -32,6 +32,7 @@ Route::group(['middleware' => ['web']], function () {
 
 		Route::resource('news', 'PostsController');
 		Route::resource('skills', 'SkillsController');
+		Route::resource('experiences', 'ExperiencesController');
 
 		Route::post('/contacts/send/{id}', 'ContactsController@sendMail');
 

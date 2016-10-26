@@ -58,11 +58,24 @@
                         <div class="search-results"></div>
                     </div>
                 </li>
-                <li class="bold {!! classActiveSegment(2, '') !!}"><a href="/admin" class="waves-effect waves-orange">Dashboard</a></li>
-                <li class="bold {!! classActiveSegment(2, 'news') !!}"><a href="/admin/news" class="waves-effect waves-orange">News</a></li>
-                <li class="bold {!! classActiveSegment(2, 'skills') !!}"><a href="/admin/skills" class="waves-effect waves-orange">Compétences</a></li>
-                <li class="bold {!! classActiveSegment(2, 'contacts') !!}"><a href="/admin/contacts" class="waves-effect waves-orange">Messages</a></li>
-                <li class="bold {!! classActiveSegment(2, 'settings') !!}"><a href="/admin/settings" class="waves-effect waves-orange">Paramètres</a></li>
+                <li class="bold {!! classActiveSegment(2, '') !!}">
+                    <a href="/admin" class="waves-effect waves-orange">Dashboard</a>
+                </li>
+                <li class="bold {!! classActiveSegment(2, 'news') !!}">
+                    <a href="/admin/news" class="waves-effect waves-orange">News</a>
+                </li>
+                <li class="bold {!! classActiveSegment(2, 'skills') !!}">
+                    <a href="/admin/skills" class="waves-effect waves-orange">Compétences</a>
+                </li>
+                <li class="bold {!! classActiveSegment(2, 'experiences') !!}">
+                    <a href="/admin/experiences" class="waves-effect waves-orange">Expériences</a>
+                </li>
+                <li class="bold {!! classActiveSegment(2, 'contacts') !!}">
+                    <a href="/admin/contacts" class="waves-effect waves-orange">Messages</a>
+                </li>
+                <li class="bold {!! classActiveSegment(2, 'settings') !!}">
+                    <a href="/admin/settings" class="waves-effect waves-orange">Paramètres</a>
+                </li>
             </ul>
         </header>
         <main>
