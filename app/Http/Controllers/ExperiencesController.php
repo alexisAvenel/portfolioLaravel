@@ -26,7 +26,7 @@ class ExperiencesController extends Controller
      */
     public function index()
     {
-        $experiences = Experience::orderBy('end_date', 'desc')->get();
+        $experiences = Experience::orderBy('end_date', 'asc')->get();
 
         return view('experiences.index', compact('experiences'));
     }

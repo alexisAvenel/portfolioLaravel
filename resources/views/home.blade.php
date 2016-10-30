@@ -4,13 +4,9 @@
 <div id="parallax1" class="slide">
     <div class="section no-pad-bot">
         <div class="container">
-
             <div class="row">
-
                 <div class="opacity-box z-depth-5 col s12">
-
                     <div class="row">
-
                         <div class="col l12 m12 s12">
                             <h1 class="header center amber-text">Alexis Avenel</h1>
                         </div>
@@ -46,69 +42,69 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
 
 
-                <div id="scrollspy" class="col s12 center ">
+                <div class="col s12 center scrollspy-arrow">
                     <a href="#competences" class="arrow amber-text"><i class="large material-icons">keyboard_arrow_down</i></a>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
 
 
 <div id="parallax2" class="slide flow-text">
-    <div id="competences" class="col s12 section scrollspy">
+    <div class="row">
+        <div id="competences" class="col s12 section scrollspy">
+            <div class="valign-wrapper">
+                <h3 class="valign"><i class="material-icons icon-title-mobile">equalizer</i> Compétences</h3>
+            </div>
 
-        <div class="valign-wrapper">
-            <h3 class="valign"><i class="material-icons icon-title-mobile">equalizer</i> Compétences</h3>
+            <div class="row">
+                <div class="col l6 offset-l1 s11">
+                    <ul>
+
+                    @foreach($skills as $skill)
+
+                        <li class="skill">
+                            <span class="skill_name">
+                                <strong>
+                                    {{ $skill->name }} @if($skill->description) ({{ $skill->description }}) @endif
+                                </strong>
+                            </span>
+                            <div class="skill_bar">
+                                <div class="skill_active" data-value="{{ $skill->value }}%"></div>
+                                <span><i>0</i><em>%</em></span>
+                            </div>
+                        </li>
+
+                    @endforeach
+
+                    </ul>
+                </div>
+
+                <div class="col s4 offset-1">
+                    <img src="<?php echo asset('images/skills2.png'); ?>" class="responsive-img valign">
+                </div>
+            </div>
         </div>
 
-        <div class="row">
-            <div class="col l6 offset-l1 s11">
-                <ul>
-
-                @foreach($skills as $skill)
-
-                    <li class="skill">
-                        <span class="skill_name">
-                            <strong>
-                                {{ $skill->name }} @if($skill->description) ({{ $skill->description }}) @endif
-                            </strong>
-                        </span>
-                        <div class="skill_bar">
-                            <div class="skill_active" data-value="{{ $skill->value }}%"></div>
-                            <span><i>0</i><em>%</em></span>
-                        </div>
-                    </li>
-
-                @endforeach
-
-                </ul>
-            </div>
-
-            <div class="col s4 offset-1">
-                <img src="<?php echo asset('images/skills2.png'); ?>" class="responsive-img valign">
-            </div>
+        <div class="col s12 center scrollspy-arrow">
+            <a href="#experiences" class="arrow"><i class="large material-icons">keyboard_arrow_down</i></a>
         </div>
     </div>
 </div>
 
 <div id="parallax3" class="slide">
-    <div id="experiences" class="section no-pad-bot">
+    <div id="experiences" class="section no-pad-bot scrollspy">
 
         <div class="valign-wrapper">
-            <h3 class="valign">Expériences</h3>
+            <h3 class="valign"><i class="material-icons icon-title-mobile">star</i> Expériences</h3>
         </div>
 
-        <div class="col s12">
-
-
+        <div class="col s12 hide-on-small-only">
             <section class="cd-horizontal-timeline">
                 <div class="timeline">
                     <div class="events-wrapper">
@@ -116,7 +112,9 @@
                             <ol>
                                 @foreach($experiences as $i => $experience)
                                 <li>
-                                    <a href="#0" data-date="{{$experience->start_date->format('d/m/Y')}}" @if($i==0) class="selected" @endif>{{$experience->start_date->format('d M')}}</a>
+                                    <a href="#0" data-date="{{$experience->start_date->format('d/m/Y')}}" @if($i==0) class="selected" @endif>
+                                        {{ $experience->getFrenchFormat($experience->start_date) }}
+                                    </a>
                                 </li>
                                 @endforeach
                             </ol>
@@ -136,10 +134,18 @@
                         @foreach($experiences as $i => $experience)
                         <li @if($i==0) class="selected" @endif data-date="{{$experience->start_date->format('d/m/Y')}}">
                             <h2>{{ucfirst($experience->job)}}</h2>
-                            <em>January 16th, 2014</em>
+                            <em> <i class="material-icons">today</i> du {{$experience->start_date->format('d/m/Y')}} @if($experience->start_date == $experience->end_date) à Aujourd'hui @else au {{$experience->end_date->format('d/m/Y')}} @endif</em>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                @if($experience->link)
+                                <a href="{{$experience->link}}" target="_blank">{{$experience->society}}</a>
+                                @else
+                                {{$experience->society}}
+                                @endif
                             </p>
+                            @if($experience->description)
+                            <hr class="hr-timeline">
+                            <p class="content">{!! $experience->description !!}</p>
+                            @endif
                         </li>
                         @endforeach
                     </ol>
@@ -147,6 +153,35 @@
             </section>
         </div>
 
+        <div class="col s12 hide-on-med-and-up">
+            <section id="cd-timeline" class="cd-container">
+                @foreach($experiences as $i => $experience)
+                <?php $icon = ($experience->is_job) ? 'job' : 'school'; ?>
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-location">
+                        <img src="<?php echo asset('images/cd-icon-'.$icon.'.svg') ?>" alt="Picture">
+                    </div> <!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content">
+                        <h2>{{ucfirst($experience->job)}}</h2>
+                        <p>
+                            @if($experience->link)
+                            <a href="{{$experience->link}}" target="_blank">{{$experience->society}}</a>
+                            @else
+                            {{$experience->society}}
+                            @endif
+                        </p>
+                        @if($experience->description)
+                        <hr class="hr-timeline">
+                        <p class="content">{!! $experience->description !!}</p>
+                        @endif
+                        <span class="cd-date"><i class="material-icons">today</i> du {{$experience->getFrenchFormat($experience->start_date )}} @if($experience->start_date == $experience->end_date) à Aujourd'hui @else au {{$experience->end_date->format('d/m/Y')}} @endif</span>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+                @endforeach
+            </section> <!-- cd-timeline -->
+
+        </div>
     </div>
 </div>
 

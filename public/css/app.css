@@ -95,6 +95,7 @@ blockquote, .blockquote {
     .icon-title-mobile {
         display: inline-block;
         color: #FFC107;
+        vertical-align: top;
     }
 }
 
@@ -365,7 +366,7 @@ nav {
     background-image: url('../images/para1.jpg');
     background-attachment: fixed;
 }
-#parallax1 #scrollspy {
+#parallax1 .scrollspy-arrow {
     position: absolute;
     height: 150px;
     margin: 0;
@@ -377,7 +378,7 @@ nav {
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
 }
-#parallax1 #scrollspy .arrow {
+#parallax1 .scrollspy-arrow .arrow {
     position: absolute;
     margin: auto;
     padding: 0;
@@ -414,7 +415,7 @@ nav {
 #parallax2 #competences .skill_name strong {
     font-weight: 800;
     text-transform: uppercase;
-    font-family: PT Sans;
+    font-family: 'PT Sans';
     font-size: 14px;
     color: #333;
 }
@@ -446,12 +447,47 @@ nav {
 #parallax2 #competences .skill .skill_bar span {
     color: #ffffff;
 }
+#parallax2 .scrollspy-arrow {
+    position: absolute;
+    z-index: 9999;
+    height: 150px;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    bottom: 20px;
+    right: 0;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+}
+#parallax2 .scrollspy-arrow .arrow {
+    position: absolute;
+    color: #FFC107;
+    margin: auto;
+    padding: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    animation: animateArrow 4s linear infinite;
+}
 
 #parallax3 {
     position: inherit;
     background-image: url('../images/bg5.jpg');
     background-attachment: fixed;
     color: #000;
+}
+@media only screen and (max-width: 600px) {
+    #parallax2 .scrollspy-arrow .arrow {
+        color: #1A1A1A;
+    }
+    #parallax3 {
+        overflow-y: auto;
+    }
+    #parallax3.slide h3 {
+        color: #fff;
+    }
 }
 
 .opacity-box {
@@ -518,6 +554,14 @@ nav {
     }
     #user-infos .block-user {
         margin: 5px 0;
+    }
+    .opacity-box a.user-infos {
+        color: #fff;
+        position: relative;
+        display: inline-block;
+        z-index: 9999;
+        width: 200px;
+        height: 80px;
     }
     .opacity-box .user-infos p {
         display: block;

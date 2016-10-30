@@ -11,6 +11,8 @@
 |
 */
 
+setlocale(LC_ALL, "fr_FR.UTF-8");
+
 Route::group(['middleware' => ['web']], function () {
 	/*** Resources ***/
 	Route::resource('news', 'PostsController');

@@ -19,12 +19,20 @@ $options['class'] = 'col s12 experienceForm';
 	<div class="row">
 		<div class="input-field col s12">
 		{!! Form::label('start_date', 'Date de début') !!}
-		{!! Form::date('start_date', null, ['class' => 'datepicker', 'required']) !!}
+		@if($experience->start_date)
+			{!! Form::date('start_date', $experience->start_date->format('d/m/Y'), ['class' => 'datepicker', 'required']) !!}
+		@else
+			{!! Form::date('start_date', null, ['class' => 'datepicker', 'required']) !!}
+		@endif
 		</div>
 
 		<div class="input-field col s12">
 		{!! Form::label('end_date', 'Date de fin') !!}
-		{!! Form::date('end_date', null, ['class' => 'datepicker', 'required']) !!}
+		@if($experience->end_date)
+			{!! Form::date('end_date', $experience->end_date->format('d/m/Y'), ['class' => 'datepicker', 'required']) !!}
+		@else
+			{!! Form::date('end_date', null, ['class' => 'datepicker', 'required']) !!}
+		@endif
 		</div>
 
 		<div class="input-field col s12">
@@ -44,7 +52,12 @@ $options['class'] = 'col s12 experienceForm';
 
 		<div class="input-field col s12">
 		{!! Form::label('description', 'Description') !!}
-		{!! Form::textarea('description', null, ['class' => 'materialize-textarea', 'length' => '100']) !!}
+		{!! Form::textarea('description', null, ['class' => 'materialize-textarea', 'length' => '500']) !!}
+		</div>
+
+		<div class="input-field col s12">
+		<input type="checkbox" name="is_job" id="is_job" value="1" @if($experience->is_job) checked @endif>
+		{!! Form::label('is_job', 'Travail ?') !!}
 		</div>
 
 		<div class="row">

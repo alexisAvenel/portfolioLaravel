@@ -9,6 +9,7 @@ use App\Experience;
 
 class HomeController extends Controller
 {
+
     /**
      * Show the application dashboard.
      *
@@ -17,7 +18,7 @@ class HomeController extends Controller
     public function index() {
         $birthday = $this->_getBirthdayYearDate();
         $skills = Skill::get();
-        $experiences = Experience::get();
+        $experiences = Experience::orderBy('start_date', 'desc')->get();
 
         return view('home', compact('birthday', 'skills', 'experiences'));
     }

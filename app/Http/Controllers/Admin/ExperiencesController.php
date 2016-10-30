@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Experience;
@@ -14,7 +13,6 @@ use Validator;
 class ExperiencesController extends Controller
 {
 
-
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +20,7 @@ class ExperiencesController extends Controller
      */
     public function index()
     {
-        $experiences = Experience::orderBy('end_date', 'desc')->get();
+        $experiences = Experience::orderBy('start_date', 'asc')->get();
 
         return view('admin.experiences.index', compact('experiences'));
     }
@@ -65,6 +63,7 @@ class ExperiencesController extends Controller
                 $data = $request->all();
                 $data['start_date'] = $data['start_date_submit'];
                 $data['end_date'] = $data['end_date_submit'];
+
                 $experience = Experience::create($data);
             }
             return redirect(route('admin.experiences.index'));
@@ -96,16 +95,22 @@ class ExperiencesController extends Controller
         $experience = Experience::findOrFail($id);
 
         $validator = Validator::make($request->all(), [
-            'title' => 'required|min:6',
-            'content' => 'required|min:10',
-            'resumed' => 'max:100'
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'job' => 'required',
+            'society' => 'required',
+            'link' => 'required'
         ]);
 
         if($validator->fails()) {
             return redirect(route('admin.experiences.edit', $id))->withErrors($validator->errors());
         } else {
             if(!empty($request->all())) {
-                $experience->update($request->all());
+                $data = $request->all();
+                $data['start_date'] = $data['start_date_submit'];
+                $data['end_date'] = $data['end_date_submit'];
+
+                $experience->update($data);
             }
 
             return redirect(route('admin.experiences.index'));
