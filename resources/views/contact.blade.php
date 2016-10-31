@@ -20,7 +20,7 @@
 					@endif
 
 					{!! Form::open(['url' => action('ContactsController@sendMail'), 'method' => 'post']) !!}
-						
+
 						<div class="row">
 							<div class="input-field col s6">
 							{!! Form::label('name', 'Votre nom *') !!}
@@ -28,25 +28,25 @@
 							</div>
 
 							<div class="input-field col s6">
-							{!! Form::label('email', 'Votre email') !!}
-							{!! Form::email('email') !!}
+							{!! Form::label('email', 'Votre email *') !!}
+							{!! Form::email('email', null, ['required' => 'required']) !!}
 							</div>
 
 							<div class="input-field col s12">
 							{!! Form::label('message', 'Votre message *') !!}
 							{!! Form::textarea('message', null, ['class' => 'materialize-textarea', 'required' => 'required']) !!}
 							</div>
-							
+
 							<div class="input-field col s12">
 								<div class="valign-wrapper">
-									<div class="g-recaptcha valign" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
+									<div class="g-recaptcha valign required" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
 								</div>
 							</div>
 						</div>
 
 						<div class="row">
 							<div class="col s12">
-								<button class="btn waves-effect waves-light block-center light-blue darken-3" type="submit">Valider</button>
+								<button class="btn waves-effect waves-light block-center light-blue darken-3" type="submit">Envoyer</button>
 							</div>
 						</div>
 

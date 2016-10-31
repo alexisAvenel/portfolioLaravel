@@ -22,6 +22,13 @@ $(document).ready(function() {
 
                 });
             }
+        },
+        {
+            selector: '#parallax2',
+            offset: 650,
+            callback: function() {
+                $('.skill-img').css({left:'55%'});
+            }
         }
     ];
 

@@ -8,8 +8,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
 use Validator;
-
+use Mail;
 use App\Contact;
+use App\User;
 
 class ContactsController extends Controller
 {
@@ -23,7 +24,7 @@ class ContactsController extends Controller
     public function sendAnswer($id) {
 
         $contact = Contact::findOrFail($id);
-        
+
         return view('admin.contacts.send-answer', compact('contact'));
     }
 
@@ -57,6 +58,7 @@ class ContactsController extends Controller
     }
 
     private function _sendMailToContact($arguments, $contact) {
+        $user = User::find(1)->toArray();
 
         $message = $arguments['message'];
         $email   = $contact->email;
@@ -66,9 +68,9 @@ class ContactsController extends Controller
 
         $isMailSend = $contact->update();
 
-        /*$isMailSend = Mail::send('contact', null, function ($mail) use ($message) {
+        $isMailSend = Mail::send('emails.contact', $user, function ($mail) use ($message, $email) {
             $mail->to($email)->subject($message);
-        });*/
+        });
 
         return $isMailSend;
     }

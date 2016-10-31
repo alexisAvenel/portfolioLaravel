@@ -34,6 +34,10 @@ class PostsController extends Controller
      */
     public function index()
     {
+        if(!Auth::check()) {
+            abort(403);
+        }
+
         $posts = Post::with('category')->Published()->get();
 
         return view('posts.index', compact('posts'));
@@ -47,6 +51,10 @@ class PostsController extends Controller
      */
     public function show($id)
     {
+        if(!Auth::check()) {
+            abort(403);
+        }
+
         $post = Post::findOrFail($id);
         $categories = Category::lists('name', 'id');
         $tags = Tag::lists('name', 'id');

@@ -35,9 +35,9 @@
                                     </span>
                                 </div>
                                 <div class="col l1 m3 s6 block-user">
-                                    <a href="http://www.interaction-healthcare.com" target="_blank" class="user-infos tooltipped" data-position="right" data-tooltip="Interaction Healthcare">
+                                    <a href="http://www.webetsolutions.com/" target="_blank" class="user-infos tooltipped" data-position="right" data-tooltip="Web & Solutions">
                                         <i class="material-icons">business</i>
-                                        <p>Interaction Healthcare</p>
+                                        <p>Web & Solutions</p>
                                     </a>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
                 </div>
 
                 <div class="col s4 offset-1">
-                    <img src="<?php echo asset('images/skills2.png'); ?>" class="responsive-img valign">
+                    <img src="<?php echo asset('images/skills1.png'); ?>" class="skill-img responsive-img valign">
                 </div>
             </div>
         </div>

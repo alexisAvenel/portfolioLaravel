@@ -62,6 +62,14 @@ blockquote, .blockquote {
     word-break: break-word;
 }
 
+img {
+    max-width: 100%;
+}
+
+#error-page {
+    min-height: 400px;
+}
+
 .block-center {
     margin: auto;
     display: block;
@@ -136,35 +144,45 @@ blockquote, .blockquote {
 }
 
 /*** ICONS ***/
+.social-links {
+    display: table;
+}
+.social-links li {
+    display: table-cell;
+}
 .icons {
-    margin: 0 2px;
+    border: 2px solid #FFC107;
+    border-radius: 50%;
+    display: inline-block;
+    height: 40px;
+    margin: 0 10px;
+    width: 40px;
 }
 .twitter {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
     background: transparent url('../images/icons/twitter.png') no-repeat center;
     background-size: 80%;
-    border: 2px solid #FFC107;
-    border-radius: 50%;
 }
 .linkedin {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
     background: transparent url('../images/icons/linkedin.png') no-repeat center;
     background-size: 80%;
-    border: 2px solid #FFC107;
-    border-radius: 50%;
 }
-.twitter, .linkedin {
+.github {
+    background: transparent url('../images/icons/github.png') no-repeat center;
+    background-size: 80%;
+    background-position: 50% 25%;
+}
+.mail {
+    background: transparent url('../images/icons/mail.png') no-repeat center;
+    background-size: 80%;
+}
+.twitter, .linkedin, .github, .mail {
     -webkit-transition: 0.5s ease;
     -moz-transition: 0.5s ease;
     -ms-transition: 0.5s ease;
     -o-transition: 0.5s ease;
     transition:all 0.5s ease 0s
 }
-.twitter:hover, .linkedin:hover {
+.twitter:hover, .linkedin:hover, .github:hover, .mail:hover {
     border-style:dotted;
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
@@ -183,21 +201,30 @@ blockquote, .blockquote {
         padding: 0;
     }
     nav a.button-collapse {
-        color: #333;
+        color: #bbb;
+    }
+    nav .side-nav {
+        background-color: #242424;
+    }
+    nav .side-nav a {
+        color: #bbb;
+    }
+    nav .side-nav li:hover, nav .side-nav li.active {
+        background-color: rgba(0,0,0,0.3);
     }
 }
 
 nav ul a:hover {
-    background-color: rgba(0,0,0,0.05);
+    background-color: rgba(0,0,0,0.3);
 }
 
 nav ul a {
-    color : #333333;
+    color : #ddd;
 }
 
 nav {
     position: relative;
-    background-color: #fff;
+    background-color: #242424;
 }
 
 .brand-logo img {
@@ -394,7 +421,7 @@ nav {
     z-index:-1;
 }
 #parallax2 {
-    background-color: #fff;
+    background-color: #F2F1EF;
 }
 #parallax2 #competences ul {
     margin: 0;
@@ -446,6 +473,14 @@ nav {
 }
 #parallax2 #competences .skill .skill_bar span {
     color: #ffffff;
+}
+#parallax2 #competences img.responsive-img {
+    position: absolute;
+    bottom: 0;
+    filter: grayscale(0.6);
+    left: -30%;
+    z-index: 1000;
+    transition: left ease 1s;
 }
 #parallax2 .scrollspy-arrow {
     position: absolute;
@@ -536,15 +571,6 @@ nav {
     margin: 40px 0;
 }
 
-#competences img.responsive-img {
-    position: absolute;
-    bottom: 0;
-    filter: grayscale(0.6);
-    height: 400px;
-    left: 25%;
-    z-index: 1000;
-}
-
 @media only screen and (max-width: 600px) {
     .opacity-box .user-infos i {
         margin: 10px 0;
@@ -596,6 +622,36 @@ footer.page-footer .footer-copyright {
 }
 footer.page-footer {
     margin-top: 0;
+}
+footer.page-footer h5 {
+    font-family: 'PT Sans';
+}
+footer.page-footer .friend-links a {
+    color: rgba(255, 255, 255, 0.3);
+    transition: color ease-in-out .6s;
+}
+footer.page-footer .friend-links a:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+footer.page-footer .avatar {
+    margin: 25% 0;
+    width: 100px;
+    max-width: 100px;
+    transition: all 0.25s ease 0s;
+}
+footer.page-footer .avatar img {
+    position: relative;
+    top: 0;
+    left: 0;
+    border-radius: 50px;
+    border: 5px solid rgba(255,255,255,0.15);
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 0 15px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0 15px 0 rgba(0,0,0,0.2);
+}
+footer.page-footer p {
+    text-align: justify;
+    word-break: break-all;
 }
 /*** End Footer ***/
 

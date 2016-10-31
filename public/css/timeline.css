@@ -406,9 +406,10 @@ Horizontal Timeline
   }
 }
 
+
 /* --------------------------------
 
-Modules - reusable parts of our design
+Vertical Timeline
 
 -------------------------------- */
 .cd-container {
@@ -423,15 +424,6 @@ Modules - reusable parts of our design
   display: table;
   clear: both;
 }
-
-
-
-/* --------------------------------
-
-Vertical Timeline
-
--------------------------------- */
-
 #cd-timeline {
   position: relative;
   padding: 2em 0;

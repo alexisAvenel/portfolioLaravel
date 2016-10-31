@@ -1,10 +1,35 @@
 jQuery(document).ready(function($){
+
+	/**
+	 * Horizontal Timeline
+	 *
+	 */
 	var timelines = $('.cd-horizontal-timeline'),
 		eventsMinDistance = 120;
 
 	if(timelines.find('.events li').length) {
 		(timelines.length > 0) && initTimeline(timelines);
 	}
+
+	/**
+	 * Vertical Timeline
+	 */
+	var timelineBlocks = $('.cd-timeline-block'),
+		offset = 0.8;
+
+	//hide timeline blocks which are outside the viewport
+	hideBlocks(timelineBlocks, offset);
+
+	//on scolling, show/animate timeline blocks when enter the viewport
+	$(window).on('scroll', function(){
+		(!window.requestAnimationFrame)
+			? setTimeout(function(){ showBlocks(timelineBlocks, offset); }, 100)
+			: window.requestAnimationFrame(function(){ showBlocks(timelineBlocks, offset); });
+	});
+
+	/**
+	 * Functions
+	 */
 
 	function initTimeline(timelines) {
 		timelines.each(function(){
@@ -270,4 +295,16 @@ jQuery(document).ready(function($){
 		return window.getComputedStyle(document.querySelector('.cd-horizontal-timeline'), '::before').getPropertyValue('content').replace(/'/g, "").replace(/"/g, "");
 	}
 
+	function hideBlocks(blocks, offset) {
+		blocks.each(function(){
+			console.log($(this));
+			( $(this).offset().top > $(window).scrollTop()+$(window).height()*offset ) && $(this).find('.cd-timeline-img, .cd-timeline-content').addClass('is-hidden');
+		});
+	}
+
+	function showBlocks(blocks, offset) {
+		blocks.each(function(){
+			( $(this).offset().top <= $(window).scrollTop()+$(window).height()*offset && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) && $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+		});
+	}
 });

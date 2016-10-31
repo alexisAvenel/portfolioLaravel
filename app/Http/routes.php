@@ -15,7 +15,7 @@ setlocale(LC_ALL, "fr_FR.UTF-8");
 
 Route::group(['middleware' => ['web']], function () {
 	/*** Resources ***/
-	Route::resource('news', 'PostsController');
+	//Route::resource('news', 'PostsController');
 
 	/*** Gets ***/
 	Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
@@ -26,10 +26,10 @@ Route::group(['middleware' => ['web']], function () {
 
 	/*** Admin ***/
 	Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin'], 'namespace' => 'Admin'], function () {
-		Route::get('/', 'AdminController@index', ['as' => 'adminHome']);
-		Route::get('/settings', 'AdminController@settings', ['as' => 'adminSettings']);
-		Route::get('/contacts', 'ContactsController@index', ['as' => 'adminContacts']);
-		Route::get('/contacts/send/{id}', 'ContactsController@sendAnswer', ['as' => 'adminContactsSend'])
+		Route::get('/', ['as' => 'adminHome', 'uses' => 'AdminController@index']);
+		Route::get('/settings', ['as' => 'adminSettings', 'uses' => 'AdminController@settings']);
+		Route::get('/contacts', ['as' => 'adminContacts', 'uses' => 'ContactsController@index']);
+		Route::get('/contacts/send/{id}', ['as' => 'adminContactsSend', 'uses' => 'ContactsController@sendAnswer'])
 				->where('id', '[0-9]+');
 
 		Route::resource('news', 'PostsController');

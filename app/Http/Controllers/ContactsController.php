@@ -11,16 +11,11 @@ use App\Traits\CaptchaTrait;
 use App\Contact;
 
 /**
-* 
+*
 */
 class ContactsController extends Controller
 {
 	use CaptchaTrait;
-
-	public function __construct()
-	{
-
-	}
 
 	public function index()
 	{
@@ -30,14 +25,15 @@ class ContactsController extends Controller
 	public function sendMail(Request $request) {
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|min:6',
-            'email' => 'email',
-            'message' => 'required|min:10',
+            'name' => 'required|min:2',
+            'email' => 'required|email',
+            'message' => 'required|min:2',
             'g-recaptcha-response'  => 'required'
         ]);
 
         if($validator->fails())
         {
+            dd($validator->errors());
             return redirect()->back()
                 ->withErrors($validator->errors())
                 ->withInput();

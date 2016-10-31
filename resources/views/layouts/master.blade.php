@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-    <title>App Name - @yield('title')</title>
+    <title>Portfolio Alexis Avenel</title>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Roboto" rel="stylesheet">
@@ -23,11 +23,9 @@
         <div class="nav-wrapper container">
             <a href="/" id="logo-container" class="brand-logo" title="Alexis Avenel"><img src="<?php echo asset('images/logo-dark.png'); ?>" class="responsive-img"></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="<?php echo url('news'); ?>">News</a></li>
                 <li><a href="<?php echo url('contact'); ?>">Contact</a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
-                <li><a href="<?php echo url('news'); ?>">News</a></li>
                 <li><a href="<?php echo url('contact'); ?>">Contact</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -35,7 +33,6 @@
     </nav>
 
     <main>
-        @yield('home-banner')
 
         @yield('content')
 
@@ -43,33 +40,59 @@
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
-                        <h5 class="white-text">Company Bio</h5>
-                        <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+                        <div class="row">
+                            <div class="col s12">
+                                <h5 class="white-text">Ma Bio</h5>
+                            </div>
+                            <div class="col l3 s4">
+                                <figure class="avatar">
+                                    <img src="<?php echo asset('images/avatar1.jpg'); ?>" alt="Avatar Alexis Avenel">
+                                </figure>
+                            </div>
+                            <div class="col l9 s8">
+                                <p class="grey-text text-lighten-4">
+                                    Salut ! Je suis Alexis Avenel, Développeur Front-end & Back-end.
+                                    Je travaille actuellement chez <a href="http://www.webetsolutions.com/" target="_blank">Web & Solutions</a>,
+                                    et mes missions sont définis par de l'intégration web, du développement PHP (Frameworks & CMS), du développement JavaScript (Frameworks & Natif), de la maintenance et de la veille techno hebdomadaire.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col l3 s12">
-                        <h5 class="white-text">Settings</h5>
-                        <ul>
-                            <li><a class="white-text" href="#!">Link 1</a></li>
-                            <li><a class="white-text" href="#!">Link 2</a></li>
-                            <li><a class="white-text" href="#!">Link 3</a></li>
-                            <li><a class="white-text" href="#!">Link 4</a></li>
+                    <div class="col l2 offset-l1 s6">
+                        <h5 class="white-text">Liens</h5>
+                        <ul class="friend-links">
+                            <li>
+                                <a href="http://quivivraverhaeghe.fr/" class="tooltipped" data-position="top" data-tooltip="Développeur Web et Mobile (Front & Back)">Julien Verhaeghe</a>
+                            </li>
+                            <li>
+                                <a href="https://www.neilappleton.com/" class="tooltipped" data-position="right" data-tooltip="Développeur/Intégrateur Front">Neil Appleton</a>
+                            </li>
+                            <li>
+                                <a href="https://www.hopwork.fr/profile/romainrichard" class="tooltipped" data-position="bottom" data-tooltip="Développeur Back / CP Junior">Romain Richard</a>
+                            </li>
                         </ul>
                     </div>
-                    <div class="col l3 s12">
-                        <h5 class="white-text">Connect</h5>
-                        <ul>
-                            <li><a href="#!" class="twitter icons" title="Twitter Alexis Avenel" target="_blank"></a></li>
-                            <li><a href="#!" class="linkedin icons" title="Linkedin Alexis Avenel" target="_blank"></a></li>
-                            <li><a class="white-text" href="#!">Link 3</a></li>
-                            <li><a class="white-text" href="#!">Link 4</a></li>
+                    <div class="col l3 s6">
+                        <h5 class="white-text">Restons Connectés</h5>
+                        <ul class="social-links">
+                            <li>
+                                <a href="https://twitter.com/chouk1991" class="twitter icons" title="Twitter Alexis Avenel" target="_blank"></a>
+                            </li>
+                            <li>
+                                <a href="https://linkedin.com/in/alexisavenel" class="linkedin icons" title="Linkedin Alexis Avenel" target="_blank"></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/alexisAvenel" class="github icons" title="GitHub Alexis Avenel" target="_blank"></a>
+                            </li>
+                            <li>
+                                <a href="/contact" class="mail icons" title="Contacter Alexis Avenel"></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-copyright">
-                <div class="container">
-                Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
-                </div>
+                <div class="container">Créé et Développé par <a class="brown-text text-lighten-3" href="<?= url('/') ?>">Alexis Avenel</a></div>
             </div>
         </footer>
     </main>
