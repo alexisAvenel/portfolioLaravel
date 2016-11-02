@@ -9,8 +9,8 @@ $(document).ready(function() {
             offset: 550,
             callback: function() {
                 $('.skill_bar').each(function(i, bar) {
-                    var value = $(bar).find('.skill_active').data('value');
-                    $(bar).find('.skill_active').width(value);
+                    var value = parseInt($(bar).find('.skill_active').data('value'));
+                    $(bar).find('.skill_active').width(value+'%');
 
                     $({someValue: 0}).animate({someValue: value}, {
                         duration: 2000,

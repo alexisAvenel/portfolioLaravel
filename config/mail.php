@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => 'mailgun',
+    'driver' => env('MAIL_DRIVER', 'mailgun'),
 
     /*
     |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'host' => 'smtp.mailgun.org',
+    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'username' => 'postmaster@sandbox3bb95efc3c014fb7a04563c3a4ee0e81.mailgun.org',
+    'username' => env('MAIL_USERNAME', 'postmaster@sandbox3bb95efc3c014fb7a04563c3a4ee0e81.mailgun.org'),
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'password' => '06cbf420719a565618cb49bc7f11168c',
+    'password' => env('MAIL_PASSWORD', '06cbf420719a565618cb49bc7f11168c'),
 
     /*
     |--------------------------------------------------------------------------

@@ -7,8 +7,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator;
 use App\Traits\CaptchaTrait;
-//use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Mail;
 use App\Contact;
+use App\User;
 
 /**
 *
@@ -66,11 +67,12 @@ class ContactsController extends Controller
         $data['message']  = $message;
         $data['date']  = date('Y-m-d H:i:s');
 
-        $isMailSend = Contact::create($data);
+        $contact = Contact::create($data);
+        $user = User::find(1)->toArray();
 
-        /*$isMailSend = Mail::send('contact', ['name', $name], function ($mail) use ($messageContent) {
-            $mail->to(env('MAIL_USERNAME'), "Alexis")->subject($messageContent);
-        });*/
+        $isMailSend = Mail::send('emails.contact', $user, function ($mail) use ($message) {
+            $mail->to('webmaster@alexisavenel.com')->subject($message);
+        });
 
         return $isMailSend;
     }
