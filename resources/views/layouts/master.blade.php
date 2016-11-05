@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
     <title>Portfolio Alexis Avenel</title>
     <link rel="icon" href="<?php echo asset('favicon.ico') ?>" />
@@ -20,14 +21,20 @@
     <script type="text/javascript" src="<?php echo asset('https://www.google.com/recaptcha/api.js'); ?>"></script>
 </head>
 <body>
+    <div class="home fixed-action-btn">
+        <a href="https://drive.google.com/open?id=0B2d3tNOgLN7tMUtOcWFNanh2c1U" class="btn-floating btn-large amber tooltipped" data-position="left" data-tooltip="Télécharger le CV" target="_blank">
+            <i class="large material-icons hide-on-small-only">play_for_work</i>
+            <i class="hide-on-med-and-up cv" title="Télécharger le CV" alt="CV"></i>
+        </a>
+    </div>
     <nav id="navigation" class="z-depth-0" role="navigation">
         <div class="nav-wrapper container">
             <a href="/" id="logo-container" class="brand-logo" title="Alexis Avenel"><img src="<?php echo asset('images/logo-dark.png'); ?>" class="responsive-img"></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="<?php echo url('contact'); ?>">Contact</a></li>
+                <li><a href="<?php echo url('contact'); ?>">Me contacter</a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
-                <li><a href="<?php echo url('contact'); ?>">Contact</a></li>
+                <li><a href="<?php echo url('contact'); ?>">Me contacter</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
@@ -40,7 +47,7 @@
         <footer class="page-footer grey darken-4">
             <div class="container">
                 <div class="row">
-                    <div class="col l6 s12">
+                    <div class="col l7 s12">
                         <div class="row">
                             <div class="col s12">
                                 <h5 class="white-text">Ma Bio</h5>
@@ -59,9 +66,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col l2 offset-l1 s6">
-                        <h5 class="white-text">Liens</h5>
-                        <ul class="friend-links">
+                    <div class="col l2 s6">
+                        <h5 class="white-text center">Liens</h5>
+                        <ul class="friend-links center">
                             <li>
                                 <a href="http://quivivraverhaeghe.fr/" class="tooltipped" data-position="top" data-tooltip="Développeur Web et Mobile (Front & Back)">Julien Verhaeghe</a>
                             </li>

@@ -75,6 +75,16 @@ $(document).ready(function() {
         $(v).css('height', para_height);
     });
 
+    $(window).resize(function(){
+        var window_width  = $(window).width(),
+            window_height = $(window).height(),
+            nav_height    = $('#navigation').height();
+        $('.slide').each(function(i, v){
+            var para_height = (i === 0) ? (window_height-nav_height) : window_height+1;
+            $(v).css('height', para_height);
+        });
+    });
+
     $('body').removeProp('css');
 
     // Plugin initialization

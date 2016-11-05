@@ -34,7 +34,6 @@ class ContactsController extends Controller
 
         if($validator->fails())
         {
-            dd($validator->errors());
             return redirect()->back()
                 ->withErrors($validator->errors())
                 ->withInput();
@@ -50,8 +49,7 @@ class ContactsController extends Controller
         if($this->_sendMailToWebmaster($request->all())) {
             return redirect('contact')->with('status', 'Votre demande a bien été envoyée.');
         } else {
-            return redirect('contact')->back()
-                                      ->withErrors(["Votre demande n'a pas pu être envoyée."])
+            return redirect('contact')->withErrors(["Votre demande n'a pas pu être envoyée."])
                                       ->withInput();
         }
     }
@@ -64,17 +62,21 @@ class ContactsController extends Controller
 
         $data['name']  = $name;
         $data['email'] = $email;
-        $data['message']  = $message;
+        $data['message'] = $message;
         $data['date']  = date('Y-m-d H:i:s');
 
+
         $contact = Contact::create($data);
-        $user = User::find(1)->toArray();
+        $datas = [
+            'bodyMessage' => $message,
+            'email' => $email,
+            'name' => $name
 
-        $isMailSend = Mail::send('emails.contact', $user, function ($mail) use ($message) {
-            $mail->to('webmaster@alexisavenel.com')->subject($message);
+        ];
+
+        return Mail::send(['html' => 'emails.contact'], $datas, function ($mail) use ($message) {
+            $mail->to(env('MAIL_TO', 'webmaster@alexisavenel.fr'))->subject($message);
         });
-
-        return $isMailSend;
     }
 
 }

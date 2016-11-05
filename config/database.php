@@ -48,10 +48,10 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => env('DB_HOST', '127.0.0.1™'),
-            'database'  => env('DB_DATABASE', 'laravel5'),
-            'username'  => env('DB_USERNAME', 'madera'),
-            'password'  => env('DB_PASSWORD', 'madera'),
+            'host'      => env('DB_HOST', 'alexisavbeportfo.mysql.db'),
+            'database'  => env('DB_DATABASE', 'alexisavbeportfo'),
+            'username'  => env('DB_USERNAME', 'alexisavbeportfo'),
+            'password'  => env('DB_PASSWORD', 'ChOuK7621'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',

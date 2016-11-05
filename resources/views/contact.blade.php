@@ -39,7 +39,7 @@
 
 							<div class="input-field col s12">
 								<div class="valign-wrapper">
-									<div class="g-recaptcha valign required" data-sitekey="{{ env('RE_CAP_SITE', '6LcMRRwTAAAAAGXhSj8ujpG9blY8yKeoDU8XdSQg') }}"></div>
+									<div class="g-recaptcha valign required" data-sitekey="{{ env('RE_CAP_SITE', '6LfuPhwTAAAAAG2oEQDuJNaJRlQKY2rJNntvDfID') }}"></div>
 								</div>
 							</div>
 						</div>

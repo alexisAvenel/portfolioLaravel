@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'mailgun'),
+    'driver' => env('MAIL_DRIVER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.alexisavenel.fr'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'webmaster@alexisavenel.com', 'name' => 'Alexis Avenel'],
+    'from' => ['address' => 'webmaster@alexisavenel.fr', 'name' => 'Alexis Avenel'],
 
     /*
     |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => env('MAIL_ENCRYPTION', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME', 'postmaster@sandbox3bb95efc3c014fb7a04563c3a4ee0e81.mailgun.org'),
+    'username' => env('MAIL_USERNAME', 'webmaster@alexisavenel.fr'),
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'password' => env('MAIL_PASSWORD', '06cbf420719a565618cb49bc7f11168c'),
+    'password' => env('MAIL_PASSWORD', 'Saperlipopette76'),
 
     /*
     |--------------------------------------------------------------------------

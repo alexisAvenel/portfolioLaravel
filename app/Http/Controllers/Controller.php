@@ -12,6 +12,6 @@ abstract class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function __construct() {
-        setlocale(LC_ALL, 'fr_FR.utf8', 'fra');
+        setlocale(LC_TIME, 'fr_FR', 'fra');
     }
 }

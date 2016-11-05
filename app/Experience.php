@@ -16,10 +16,10 @@ class Experience extends Model
 
     public function getFrenchFormat($date) {
         $day    = strftime('%d', strtotime($date));
-        $month  = ucfirst(utf8_encode(strftime('%b', strtotime($date))));
+        $month  = strftime('%b', strtotime($date));
         $year   = strftime('%y', strtotime($date));
         $s      = ' ';
 
-        return $day . $s . $month . $s . $year;
+        return $day . $s . utf8_encode(ucfirst($month)) . $s . $year;
     }
 }

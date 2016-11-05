@@ -10,7 +10,7 @@ trait CaptchaTrait {
     {
         $response = Input::get('g-recaptcha-response');
         $remoteip = $_SERVER['REMOTE_ADDR'];
-        $secret   = env('RE_CAP_SECRET', '6LcMRRwTAAAAAG0KlApk9KMrm39yngHEc7cbcvFO');
+        $secret   = env('RE_CAP_SECRET', '6LfuPhwTAAAAAJusditT_lcQ1r5nsujViOCo-eoE');
 
         $recaptcha = new ReCaptcha($secret);
         $resp = $recaptcha->verify($response, $remoteip);

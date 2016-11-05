@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+
 <div id="parallax1" class="slide">
     <div class="section no-pad-bot">
         <div class="container">

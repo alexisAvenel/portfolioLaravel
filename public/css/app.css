@@ -93,20 +93,6 @@ img {
     display: none;
 }
 
-@media only screen and (max-width: 992px) {
-    .btn-large.rounded{
-        width: 100%;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .icon-title-mobile {
-        display: inline-block;
-        color: #FFC107;
-        vertical-align: top;
-    }
-}
-
 .btn.circle,
 .btn-large.circle {
     border-radius: 50%;
@@ -129,18 +115,10 @@ img {
     display: table-cell;
 }
 
-@media only screen and (min-width : 300px) {
-    @keyframes animateArrow {
-        0% {
-            top: 45%;
-        }
-        50% {
-            top: 70%;
-        }
-        100% {
-            top: 45%;
-        }
-    }
+.home.fixed-action-btn {
+    bottom: 0;
+    top: 80px;
+    right: 10px;
 }
 
 /*** ICONS ***/
@@ -190,30 +168,18 @@ img {
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
 }
+.home.fixed-action-btn i.cv {
+    background-image: url(../images/icons/curriculum.png);
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    vertical-align: middle;
+    text-align: center;
+}
 /*** END ICONS ***/
 
 /*** NAV ***/
-@media only screen and (max-width: 992px) {
-    .side-nav {
-        left: 0;
-    }
-    .side-nav li {
-        padding: 0;
-    }
-    nav a.button-collapse {
-        color: #bbb;
-    }
-    nav .side-nav {
-        background-color: #242424;
-    }
-    nav .side-nav a {
-        color: #bbb;
-    }
-    nav .side-nav li:hover, nav .side-nav li.active {
-        background-color: rgba(0,0,0,0.3);
-    }
-}
-
 nav ul a:hover {
     background-color: rgba(0,0,0,0.3);
 }
@@ -513,17 +479,6 @@ nav {
     background-attachment: fixed;
     color: #000;
 }
-@media only screen and (max-width: 600px) {
-    #parallax2 .scrollspy-arrow .arrow {
-        color: #1A1A1A;
-    }
-    #parallax3 {
-        overflow-y: auto;
-    }
-    #parallax3.slide h3 {
-        color: #fff;
-    }
-}
 
 .opacity-box {
     background-color: rgba(0, 0, 0, 0.6);
@@ -571,40 +526,6 @@ nav {
     margin: 40px 0;
 }
 
-@media only screen and (max-width: 600px) {
-    .opacity-box .user-infos i {
-        margin: 10px 0;
-    }
-    #user-infos {
-        margin: 10px 0;
-    }
-    #user-infos .block-user {
-        margin: 5px 0;
-    }
-    .opacity-box a.user-infos {
-        color: #fff;
-        position: relative;
-        display: inline-block;
-        z-index: 9999;
-        width: 200px;
-        height: 80px;
-    }
-    .opacity-box .user-infos p {
-        display: block;
-        vertical-align: super;
-        text-align: center;
-        margin: 0;
-    }
-    .material-tooltip {
-        display: none !important;
-    }
-    #parallax2 #competences .skill_name strong {
-        font-size: 12px;
-    }
-    #competences img {
-        display: none;
-    }
-}
 
 .opacity-box a.user-infos {
     color: #fff;
@@ -743,3 +664,149 @@ footer.page-footer p {
     color: #ccc;
 }
 /*** END FLIP BUTTON ***/
+
+
+
+
+/** MEDIA QUERIES **/
+@media only screen and (max-width: 1024px) {
+    .opacity-box a.user-infos, .opacity-box span.user-infos {
+        color: #fff;
+        position: relative;
+        display: inline-block;
+        z-index: 9999;
+        /*width: 200px;*/
+        height: 80px;
+    }
+    .opacity-box .user-infos p {
+        display: block;
+        vertical-align: super;
+        text-align: center;
+        /*margin: 0;*/
+    }
+}
+/* TABLET PORTRAIT */
+/* Portrait */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (orientation: portrait)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    #parallax1 .opacity-box {
+        margin-top: 25%;
+    }
+    #parallax3.slide h3 {
+        color: #ddd;
+    }
+    #parallax3 .cd-horizontal-timeline.loaded {
+        margin-top: 25%;
+    }
+    #parallax3 .cd-horizontal-timeline .events-content p.content {
+        margin-left: 0;
+    }
+    #parallax3 .cd-horizontal-timeline .events-content em {
+        color: #ababab;
+    }
+    footer.page-footer .avatar {
+        margin: 1em 40px;
+    }
+}
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (orientation: landscape)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    #parallax1 .block-user {
+        margin-left: auto;
+        width: 25%;
+    }
+    #parallax3 .cd-horizontal-timeline .events-content p.content {
+        margin-left: 0;
+    }
+    #parallax3 .cd-horizontal-timeline .events-content em {
+        color: #ababab;
+    }
+    footer .container {
+        width: 85%;
+    }
+}
+@media only screen and (max-width: 992px) {
+    .side-nav {
+        left: 0;
+    }
+    .side-nav li {
+        padding: 0;
+    }
+    nav a.button-collapse {
+        color: #bbb;
+    }
+    nav .side-nav {
+        background-color: #242424;
+    }
+    nav .side-nav a {
+        color: #bbb;
+    }
+    nav .side-nav li:hover, nav .side-nav li.active {
+        background-color: rgba(0,0,0,0.3);
+    }
+    .btn-large.rounded{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .opacity-box .user-infos i {
+        margin: 10px 0;
+    }
+    #user-infos {
+        margin: 10px 0;
+    }
+    #user-infos .block-user {
+        margin: 5px 0;
+    }
+    .material-tooltip {
+        display: none !important;
+    }
+    .icon-title-mobile {
+        display: inline-block;
+        color: #FFC107;
+        vertical-align: top;
+    }
+    #parallax2 .scrollspy-arrow .arrow {
+        color: #1A1A1A;
+    }
+    #parallax3 {
+        overflow-y: auto;
+    }
+    #parallax3.slide h3 {
+        color: #fff;
+    }
+    #parallax2 #competences .skill_name strong {
+        font-size: 12px;
+    }
+    #competences img {
+        display: none;
+    }
+}
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 670px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    #parallax2 #competences .skill_name strong {
+        font-size: 9px;
+    }
+}
+@media only screen and (min-width : 300px) {
+    @keyframes animateArrow {
+        0% {
+            top: 45%;
+        }
+        50% {
+            top: 70%;
+        }
+        100% {
+            top: 45%;
+        }
+    }
+}
+/** END MEDIA QUERIES **/
